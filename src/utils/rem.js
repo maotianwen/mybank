@@ -1,3 +1,4 @@
+// 设置 rem 函数
 function setRem() {
   var h = Math.max(
     document.documentElement.clientHeight,

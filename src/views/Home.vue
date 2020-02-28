@@ -2,6 +2,9 @@
   <div class="home">
     <p>cyt</p>
     <p>{{ sb }}</p>
+    <div class="mybad">
+      'qunimade'
+    </div>
   </div>
 </template>
 
@@ -19,11 +22,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .home {
   p {
-    text-align: left;
-    margin-left: 156px;
+  }
+  .mybad {
+    display: inline-block;
+    width: 700px;
+    border: 1px solid red;
   }
 }
 </style>

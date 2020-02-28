@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "bargain" : "./",
+  publicPath: "./",
   outputDir: "/Users/vscode/graduation-project/mybank/final",
   // transpileDependencies: ['swiper', 'dom7'],
   configureWebpack: {

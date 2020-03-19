@@ -5,15 +5,19 @@
     <div class="mybad">
       'qunimade'
     </div>
+    <MandTest />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import MandTest from "@/components/MandTest";
 
 export default {
   name: "Home",
-  components: {},
+  components: {
+    MandTest
+  },
   data() {
     return {
       sb: "asd"
@@ -24,11 +28,9 @@ export default {
 
 <style lang="less" scoped>
 .home {
-  p {
-  }
   .mybad {
     display: inline-block;
-    width: 700px;
+    width: 300px;
     border: 1px solid red;
   }
 }

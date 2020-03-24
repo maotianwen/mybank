@@ -11,18 +11,19 @@
 
 <script>
 // @ is an alias to /src
-import MandTest from "@/components/MandTest";
+import MandTest from '@/components/MandTest';
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     MandTest
   },
   data() {
     return {
-      sb: "asd"
+      sb: 'asd'
     };
-  }
+  },
+  methods: {}
 };
 </script>
 

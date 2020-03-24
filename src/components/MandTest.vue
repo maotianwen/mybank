@@ -7,15 +7,16 @@
       :loading="loadingState"
       @click="fakeLoading"
       :style="'width:200px;margin:0 auto'"
-      >贷款须谨慎</md-button
     >
+      贷款须谨慎
+    </md-button>
     <md-bill title="借款电子票据" no="12345689" water-mark="我操你大爷">
       <md-detail-item title="借款金额">
         &yen;30,000
       </md-detail-item>
       <md-detail-item title="收款账户">
-        <md-icon name="bank-zs" svg style="margin-right:10px;"></md-icon
-        >招商银行(尾号xxxx)
+        <md-icon name="bank-zs" svg style="margin-right:10px;"></md-icon>
+        招商银行(尾号xxxx)
       </md-detail-item>
       <md-detail-item title="借款期数" content="12期" />
       <md-detail-item title="正常还款总息">
@@ -28,8 +29,9 @@
           type="fill"
           fill-color="#858B9C"
           style="margin-right:4px;"
-          >首次</md-tag
         >
+          首次
+        </md-tag>
         &yen;404.50&nbsp;(9月22日)
       </md-detail-item>
     </md-bill>
@@ -38,7 +40,7 @@
 
 <script>
 export default {
-  name: "MandTest",
+  name: 'MandTest',
   components: {},
   data() {
     return {
@@ -47,20 +49,21 @@ export default {
   },
   mounted() {
     // this.makeSome();
-    this.api.getProvinces().then(res => {
-      console.log(res.data);
-    });
+    // this.api.getProvinces().then(res => {
+    //   console.log(res.data);
+    // });
   },
   methods: {
     fakeLoading() {
       this.loadingState = true;
       setTimeout(() => {
         this.loadingState = false;
+        this.$router.push('about');
       }, 500);
     },
     makeSome() {
       this.axios
-        .get("https://lab.isaaclin.cn/nCoV/api/provinceName?lang=zh")
+        .get('https://lab.isaaclin.cn/nCoV/api/provinceName?lang=zh')
         .then(res => {
           console.log(res.data);
         });

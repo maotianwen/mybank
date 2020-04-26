@@ -6,6 +6,7 @@
       'qunimade'
     </div>
     <MandTest />
+    <div class="footer">主菜单</div>
   </div>
 </template>
 

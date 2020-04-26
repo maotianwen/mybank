@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const defaultDomain = "https://lab.isaaclin.cn/nCoV/api/";
+const defaultDomain = 'https://lab.isaaclin.cn/nCoV/api/';
 
 export default {
   get(path) {
@@ -11,6 +11,6 @@ export default {
 
   //查询省份
   getProvinces() {
-    return this.get("provinceName");
+    return this.get('provinceName');
   }
 };

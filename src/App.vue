@@ -14,7 +14,7 @@ export default {
     };
   },
   watch: {
-    $route: function(to, from) {
+    $route(to, from) {
       const end = to.path.split('/').filter(item => item !== '').length;
       const start = from.path.split('/').filter(item => item !== '').length;
       // console.log(start, end);

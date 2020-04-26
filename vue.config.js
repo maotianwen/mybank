@@ -1,8 +1,8 @@
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 module.exports = {
-  publicPath: "./",
-  outputDir: "/Users/vscode/graduation-project/mybank/final",
+  publicPath: './',
+  outputDir: '/Users/vscode/graduation-project/mybank/final',
   // transpileDependencies: ['swiper', 'dom7'],
   configureWebpack: {
     devServer: {
@@ -13,7 +13,7 @@ module.exports = {
       //   CanvasKeyFrames: 'canvaskeyframes',
       // }),
       new webpack.DefinePlugin({
-        "process.env": {
+        'process.env': {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }
       })
@@ -23,12 +23,12 @@ module.exports = {
     loaderOptions: {
       postcss: {
         plugins: [
-          require("postcss-pxtorem")({
+          require('postcss-pxtorem')({
             rootValue: 75, // 换算的基数
-            selectorBlackList: ["weui", "mu"], // 忽略转换正则匹配项
-            propList: ["*"]
+            selectorBlackList: ['weui', 'mu'], // 忽略转换正则匹配项
+            propList: ['*']
           }),
-          require("autoprefixer")()
+          require('autoprefixer')()
         ]
       }
     }

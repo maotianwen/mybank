@@ -17,14 +17,13 @@ export default {
     $route(to, from) {
       const end = to.path.split('/').filter(item => item !== '').length;
       const start = from.path.split('/').filter(item => item !== '').length;
-      // console.log(start, end);
       this.transitionName = start < end ? 'slide-left' : 'slide-right';
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

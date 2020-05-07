@@ -1,8 +1,9 @@
 <template>
   <div class="about">
-    <Marquee />
+    <Marquee :province="mydata" />
     <h1>This is an about page</h1>
     <button @click="backHome">backHome</button>
+    <button @click="$router.push('cash')">nextPage</button>
   </div>
 </template>
 
@@ -14,12 +15,14 @@ export default {
     Marquee
   },
   data() {
-    return {};
+    return {
+      mydata: []
+    };
   },
   methods: {
     backHome() {
       this.$router.push({ name: 'Home' });
-    }
+    },
   },
   mounted() {
     // console.log(this.$router);
@@ -29,5 +32,9 @@ export default {
 
 <style lang="less" scoped>
 .about {
+  button{
+    display: block;
+    margin: 0 auto;
+  }
 }
 </style>

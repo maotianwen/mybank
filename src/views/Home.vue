@@ -1,23 +1,25 @@
 <template>
   <div class="home">
-    <p>cyt</p>
-    <p>{{ sb }}</p>
-    <div class="mybad">
-      'qunimade'
-    </div>
-    <MandTest />
-    <div class="footer">主菜单</div>
+    <Refresh>
+      <MandTest />
+    </Refresh>
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import MandTest from '@/components/MandTest';
+import Footer from '@/components/Footer';
+import Refresh from '@/components/Refresh';
+// import func from '@/utils/func';
 
 export default {
   name: 'Home',
   components: {
-    MandTest
+    MandTest,
+    Footer,
+    Refresh
   },
   data() {
     return {
@@ -30,6 +32,9 @@ export default {
 
 <style lang="less" scoped>
 .home {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   .mybad {
     display: inline-block;
     width: 300px;

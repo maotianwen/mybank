@@ -1,7 +1,7 @@
 <template>
   <div class="marquee-container">
     <ul :class="['marquee', { go: animate }]">
-      <li v-for="item in list" :key="item.id">{{ item.name }}</li>
+      <li v-for="item in list" :key="item">{{ item }}</li>
     </ul>
   </div>
 </template>
@@ -11,17 +11,31 @@ export default {
   name: 'Marquee',
   data() {
     return {
-      list: [
-        { name: 'cyt', id: 1 },
-        { name: 'mtw', id: 2 },
-        { name: 'pxj', id: 3 },
-        { name: 'lxc', id: 4 },
-        { name: 'cbb', id: 5 },
-        { name: 'maybe', id: 6 }
-      ],
+      // list: [],
       animate: false
     };
   },
+  computed: {
+    list() {
+      return JSON.parse(JSON.stringify(this.province));
+    }
+  },
+  props: {
+    province: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
+  created() {
+    // this.list = this.province;
+  },
+  // watch: {
+  //   province(newValue) {
+  //     this.list = newValue;
+  //   }
+  // },
   mounted() {
     setInterval(this.play, 3000);
   },
@@ -44,9 +58,12 @@ export default {
   overflow: hidden;
   height: 130px;
   background-color: goldenrod;
+  li {
+    line-height: 130px;
+  }
 }
 .go {
-  margin-top: -105px;
+  margin-top: -130px;
   transition: all 0.4s;
 }
 </style>

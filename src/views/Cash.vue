@@ -1,16 +1,28 @@
 <template>
   <div>
     <keep-alive>
-      <component :is></component>
+      <component :is="comA"></component>
     </keep-alive>
+    <button @click="comA = comA === 'Gender' ? 'Profile' : 'Gender'">
+      点击切换组件
+    </button>
   </div>
 </template>
 
 <script>
+import Gender from '@/components/Gender';
+import Profile from '@/components/Profile';
+
 export default {
   name: 'Cash',
+  components: {
+    Gender,
+    Profile
+  },
   data() {
-    return {};
+    return {
+      comA: 'Gender'
+    };
   }
 };
 </script>

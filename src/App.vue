@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name="transitionName" mode="out-in">
+    <transition :name="transitionName">
       <router-view />
     </transition>
   </div>
@@ -15,8 +15,9 @@ export default {
   },
   watch: {
     $route(to, from) {
-      const end = to.path.split('/').filter(item => item !== '').length;
-      const start = from.path.split('/').filter(item => item !== '').length;
+      const end = to.path;
+      const start = from.path;
+      console.log(to.path, from.path);
       this.transitionName = start < end ? 'slide-left' : 'slide-right';
     }
   }
@@ -35,33 +36,29 @@ export default {
   animation: slideleft 0.3s;
 }
 .slide-left-leave-active {
-  animation: slideright 0.3s reverse;
+  opacity: 0;
 }
 
 .slide-right-enter-active {
   animation: slideright 0.3s;
 }
 .slide-right-leave-active {
-  animation: slideleft 0.3s reverse;
+  opacity: 0;
 }
 @keyframes slideleft {
   0% {
     transform: translateX(100%);
-    opacity: 0;
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
   }
 }
 @keyframes slideright {
   0% {
     transform: translateX(-100%);
-    opacity: 0;
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
   }
 }
 </style>

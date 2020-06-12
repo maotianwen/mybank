@@ -6,6 +6,7 @@
     <button @click="comA = comA === 'Gender' ? 'Profile' : 'Gender'">
       点击切换组件
     </button>
+    <button @click="$router.back()">back</button>
   </div>
 </template>
 

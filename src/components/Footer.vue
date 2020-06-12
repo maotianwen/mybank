@@ -13,10 +13,9 @@ export default {
     return {
       mainMenu: [
         { text: '首页', route: 'profile' },
-        { text: '性别', route: 'gender' },
-        { text: '精彩生活' },
-        { text: '龙争虎斗' },
-        { text: '贷款' }
+        { text: '理财', route: 'gender' },
+        { text: '生活' },
+        { text: '我的' }
       ]
     };
   },
@@ -32,7 +31,7 @@ export default {
   width: 100%;
   align-items: center;
   button {
-    flex: 0 0 20%;
+    flex: 0 0 25%;
     border: 1px solid black;
     height: 120px;
   }

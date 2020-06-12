@@ -6,7 +6,11 @@
     @touchend="touchEnd"
     :style="styleObj"
   >
-    <i :class="isLoading ? 'loading' : ''"></i>
+    <!-- <i :class="isLoading ? 'loading' : ''"></i> -->
+    <div class="loading-wrapper">
+      <AnimateLogo v-if="isLoading" />
+      <p v-if="!isLoading && moveDistance > 50">松开刷新</p>
+    </div>
     <div class="slot">
       <slot />
     </div>
@@ -14,8 +18,13 @@
 </template>
 
 <script>
+import AnimateLogo from '@/components/AnimateLogo.vue';
+
 export default {
   name: 'Refresh',
+  components: {
+    AnimateLogo
+  },
   data() {
     return {
       startY: '', //保存touch时的Y坐标
@@ -34,7 +43,11 @@ export default {
     }
   },
   methods: {
+    //三个事件在开始时都要判断isLoading的值，为true就退出，以免重复触发
     touchStart(e) {
+      if (this.isLoading) {
+        return false;
+      }
       this.duration = 0;
       this.moveDistance = 0;
       this.startY = e.targetTouches[0].clientY; //起点y坐标
@@ -42,6 +55,9 @@ export default {
     touchMove(e) {
       let scrollTop = document.body.scrollTop;
       if (scrollTop > 0) {
+        return false;
+      }
+      if (this.isLoading) {
         return false;
       }
       let move = e.targetTouches[0].clientY - this.startY;
@@ -62,6 +78,9 @@ export default {
       }
     },
     touchEnd() {
+      if (this.isLoading) {
+        return false;
+      }
       this.duration = 300;
       if (this.moveDistance > 50) {
         this.moveState = 2;
@@ -70,7 +89,7 @@ export default {
         setTimeout(() => {
           this.moveDistance = 0;
           this.isLoading = false;
-        }, 1600);
+        }, 2000);
       } else {
         this.moveDistance = 0;
       }
@@ -90,12 +109,19 @@ export default {
 .refresh {
   height: 60px;
   margin-top: -100px;
-  i {
-    width: 50px;
-    height: 50px;
-    background-image: url(../assets/loading.png);
-    &.loading {
-      animation: rotate 0.8s linear infinite;
+  // i {
+  //   width: 50px;
+  //   height: 50px;
+  //   background-image: url(../assets/loading.png);
+  //   &.loading {
+  //     animation: rotate 0.8s linear infinite;
+  //   }
+  // }
+  .loading-wrapper {
+    display: inline-block;
+    // height: 50px;
+    p {
+      font-size: 16px;
     }
   }
 }

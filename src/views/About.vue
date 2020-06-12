@@ -1,18 +1,23 @@
 <template>
   <div class="about">
-    <Marquee :province="mydata" />
-    <h1>This is an about page</h1>
-    <button @click="backHome">backHome</button>
-    <button @click="$router.push('cash')">nextPage</button>
+    <Refresh>
+      <Marquee :province="mydata" />
+      <h1>This is an about page</h1>
+      <button @click="backHome">backHome</button>
+      <button @click="$router.push('about/cash')">nextPage</button>
+    </Refresh>
   </div>
 </template>
 
 <script>
 import Marquee from '@/components/Marquee';
+import Refresh from '@/components/Refresh';
+
 export default {
   name: 'about',
   components: {
-    Marquee
+    Marquee,
+    Refresh
   },
   data() {
     return {
@@ -21,8 +26,8 @@ export default {
   },
   methods: {
     backHome() {
-      this.$router.push({ name: 'Home' });
-    },
+      this.$router.back();
+    }
   },
   mounted() {
     // console.log(this.$router);
@@ -32,7 +37,7 @@ export default {
 
 <style lang="less" scoped>
 .about {
-  button{
+  button {
     display: block;
     margin: 0 auto;
   }

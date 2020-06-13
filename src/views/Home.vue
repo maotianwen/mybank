@@ -2,6 +2,7 @@
   <div class="home">
     <Refresh>
       <MandTest />
+      <button class="toall" @click="$router.push('all')">+</button>
     </Refresh>
     <Footer />
   </div>
@@ -35,7 +36,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  .mybad {
+  .toall {
     display: inline-block;
     width: 300px;
     border: 1px solid red;

@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 module.exports = {
   publicPath: './',
-  outputDir: '/Users/vscode/graduation-project/mybank/final',
+  outputDir: '/Users/vscode/graduation-project/final',
   // transpileDependencies: ['swiper', 'dom7'],
   configureWebpack: {
     devServer: {

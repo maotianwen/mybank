@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Welcome />
     <Refresh>
       <MandTest />
       <button class="toall" @click="$router.push('all')">+</button>
@@ -13,6 +14,7 @@
 import MandTest from '@/components/MandTest';
 import Footer from '@/components/Footer';
 import Refresh from '@/components/Refresh';
+import Welcome from '@/views/Welcome';
 // import func from '@/utils/func';
 
 export default {
@@ -20,7 +22,8 @@ export default {
   components: {
     MandTest,
     Footer,
-    Refresh
+    Refresh,
+    Welcome
   },
   data() {
     return {

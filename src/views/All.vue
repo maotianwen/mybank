@@ -19,22 +19,28 @@
         </div>
       </transition-group>
     </Draggable>
+    <StairAnimation :list="otherTest" />
   </div>
 </template>
 
 <script>
 import Draggable from 'vuedraggable';
+import StairAnimation from '@/components/StairAnimation';
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export default {
   name: 'All',
   components: {
-    Draggable
+    Draggable,
+    StairAnimation
   },
   data() {
     return {
       test: arr.map(item => {
+        return { text: `${item}号`, id: item };
+      }),
+      otherTest: arr.map(item => {
         return { text: `${item}号`, id: item };
       }),
       dragOptions: {
@@ -71,5 +77,8 @@ export default {
 
 .list-move {
   transition: all 0.5s;
+}
+.tt {
+  border: 1px solid black;
 }
 </style>

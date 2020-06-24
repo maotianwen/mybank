@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      sb: 'asd'
+      sb: 'asda'
     };
   },
   methods: {}

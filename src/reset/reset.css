@@ -26,11 +26,12 @@ body.modalOpen {
 
 html {
   font-family: "DIN";
-  touch-action: none;
-  -webkit-touch-action: none;
+  touch-action: auto;
+  -webkit-touch-action: auto;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #ffffff;
 }
 
 img {
@@ -59,10 +60,13 @@ button,
 textarea {
   border: none;
   outline: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }
 
 input {
   -webkit-appearance: none;
+  box-sizing: border-box;
 }
 
 ::-webkit-input-placeholder {
@@ -178,4 +182,8 @@ i {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+img {
+  display: block;
 }

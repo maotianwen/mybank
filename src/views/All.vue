@@ -1,17 +1,5 @@
 <template>
   <div class="all">
-    <!-- <ul>
-      <li
-        v-for="item in test"
-        :key="item.id"
-        @touchstart="touchstartHandler(item, $event)"
-        @touchmove="touchmoveHandler(item, $event)"
-        @touchend="touchendHandler(item, $event)"
-        :style="item.id === movingItemID ? styleObj : null"
-      >
-        {{ item.text }}
-      </li>
-    </ul> -->
     <Draggable v-model="test" v-bind="dragOptions">
       <transition-group>
         <div v-for="element in test" :key="element.id" class="custom-item">
@@ -20,6 +8,7 @@
       </transition-group>
     </Draggable>
     <StairAnimation :list="otherTest" />
+    <p>我是底部</p>
   </div>
 </template>
 
@@ -27,7 +16,7 @@
 import Draggable from 'vuedraggable';
 import StairAnimation from '@/components/StairAnimation';
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 export default {
   name: 'All',

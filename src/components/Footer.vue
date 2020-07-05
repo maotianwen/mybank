@@ -1,7 +1,14 @@
 <template>
   <div class="footer">
     <button v-for="(item, index) in mainMenu" :key="index">
-      {{ item.text }}
+      <div
+        class="icon-wrapper"
+        @click="switchTab(index)"
+        :class="{ selected: $store.state.mainMenuIndex === index }"
+      >
+        <i :class="item.class"></i>
+        <p>{{ item.text }}</p>
+      </div>
     </button>
   </div>
 </template>
@@ -12,28 +19,56 @@ export default {
   data() {
     return {
       mainMenu: [
-        { text: '首页', route: 'profile' },
-        { text: '理财', route: 'gender' },
-        { text: '生活' },
-        { text: '我的' }
+        { text: '首页', class: 'home-icon' },
+        { text: '理财', class: 'finance-icon' },
+        { text: '生活', class: 'life-icon' },
+        { text: '我的', class: 'mine-icon' }
       ]
     };
   },
-  methods: {}
+  methods: {
+    switchTab(index) {
+      this.$store.commit('changeIndex', index);
+    }
+  }
 };
 </script>
 
 <style lang="less" scoped>
 .footer {
   display: flex;
+  height: 114px;
+  background-color: #ffffff;
   position: fixed;
   bottom: 0;
   width: 100%;
   align-items: center;
   button {
     flex: 0 0 25%;
-    border: 1px solid black;
-    height: 120px;
+    .selected {
+      p {
+        color: #0065b2;
+      }
+    }
+    i {
+      width: 44px;
+      height: 42px;
+      &.home-icon {
+        background-image: url(../assets/home.png);
+      }
+      &.finance-icon {
+        background-image: url(../assets/finance.png);
+      }
+      &.life-icon {
+        background-image: url(../assets/life.png);
+      }
+      &.mine-icon {
+        background-image: url(../assets/mine.png);
+      }
+    }
+    p {
+      font-size: 24px;
+    }
   }
 }
 </style>

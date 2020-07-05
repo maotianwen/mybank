@@ -1,28 +1,21 @@
 <template>
   <div class="home">
     <Welcome />
-    <Refresh>
-      <MandTest />
-      <button class="toall" @click="$router.push('all')">+</button>
-    </Refresh>
+    <div class="header"></div>
+    <button class="toall" @click="$router.push('all')">+</button>
     <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import MandTest from '@/components/MandTest';
 import Footer from '@/components/Footer';
-import Refresh from '@/components/Refresh';
 import Welcome from '@/views/Welcome';
-// import func from '@/utils/func';
 
 export default {
   name: 'Home',
   components: {
-    MandTest,
     Footer,
-    Refresh,
     Welcome
   },
   data() {
@@ -30,7 +23,17 @@ export default {
       sb: 'asda'
     };
   },
-  methods: {}
+  mounted() {
+    // this.getFund();
+  },
+  methods: {
+    getFundDetail() {
+      this.api.getFundDetail('000001').then(v => console.log(v));
+    },
+    getFund() {
+      this.api.getFund('202015', '007339').then(v => console.log(v));
+    }
+  }
 };
 </script>
 
@@ -39,6 +42,9 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
+  .header {
+    height: 87px;
+  }
   .toall {
     display: inline-block;
     width: 300px;

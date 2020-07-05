@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const defaultDomain = 'https://lab.isaaclin.cn/nCoV/api/';
+const defaultDomain = 'https://api.doctorxiong.club/v1/';
 
 export default {
   get(path) {
@@ -8,22 +8,15 @@ export default {
       url: defaultDomain + path
     });
   },
+  //code需要以string传入，避免strict mode下识别为已废弃的八进制转义序列
 
-  //查询省份
-  getProvinces() {
-    return this.get('provinceName');
+  //获取基金基础信息,支持用逗号分隔查询多个
+  getFund(...code) {
+    return this.get(`fund?code=${code.join()}`);
   },
-  //xhr
-  xhrMethod() {
-    return new Promise(resolve => {
-      let xhr = new XMLHttpRequest();
-      xhr.open('get', 'https://lab.isaaclin.cn/nCoV/api/provinceName', true);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          resolve(xhr.responseText);
-        }
-      };
-      xhr.send(null);
-    });
+
+  //获取基金详情
+  getFundDetail(code) {
+    return this.get(`fund/detail?code=${code}`);
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name="transitionName">
+    <transition :name="transitionName" mode="out-in">
       <router-view />
     </transition>
   </div>
@@ -17,8 +17,12 @@ export default {
     $route(to, from) {
       const end = to.path;
       const start = from.path;
-      // console.log(to.path, from.path);
-      this.transitionName = start < end ? 'slide-left' : 'slide-right';
+      console.log(to.path, from.path);
+      if (end.includes('login') || start.includes('login')) {
+        this.transitionName = 'fade';
+      } else {
+        this.transitionName = start < end ? 'slide-left' : 'slide-right';
+      }
     }
   }
 };
@@ -30,7 +34,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+}
+.fade-enter-active {
+  transition: all 0.3s;
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: all 0.3s;
+  opacity: 0;
 }
 .slide-left-enter-active {
   animation: slideleft 0.3s;

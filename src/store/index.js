@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     showWelcomePage: true,
     isLogined: false,
-    mainMenuIndex: 0
+    menuIndex: 0
   },
   mutations: {
     haveWelcomed(state) {
@@ -20,7 +20,7 @@ export default new Vuex.Store({
       state.isLogined = false;
     },
     changeIndex(state, index) {
-      state.mainMenuIndex = index;
+      state.menuIndex = index;
     }
   },
   actions: {},

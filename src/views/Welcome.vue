@@ -36,9 +36,9 @@ export default {
     transform: translateX(-50%);
   }
   .logo {
-    background-image: url(../assets/logo.png);
-    width: 128px;
-    height: 128px;
+    background-image: url(../assets/blue-logo.png);
+    width: 130px;
+    height: 130px;
     bottom: 366px;
   }
   .text {

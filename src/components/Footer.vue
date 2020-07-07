@@ -4,7 +4,7 @@
       <div
         class="icon-wrapper"
         @click="switchTab(index)"
-        :class="{ selected: $store.state.mainMenuIndex === index }"
+        :class="{ selected: menuIndex === index }"
       >
         <i :class="item.class"></i>
         <p>{{ item.text }}</p>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Footer',
   data() {
@@ -30,6 +32,9 @@ export default {
     switchTab(index) {
       this.$store.commit('changeIndex', index);
     }
+  },
+  computed: {
+    ...mapState(['menuIndex'])
   }
 };
 </script>
@@ -47,7 +52,12 @@ export default {
     flex: 0 0 25%;
     .selected {
       p {
-        color: #0065b2;
+        color: @my-blue;
+      }
+      i {
+        &.home-icon {
+          background-image: url(../assets/home-selected.png);
+        }
       }
     }
     i {

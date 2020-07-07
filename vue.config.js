@@ -1,8 +1,10 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   publicPath: './',
   outputDir: '/Users/vscode/graduation-project/demo/final',
+
   // transpileDependencies: ['swiper', 'dom7'],
   configureWebpack: {
     devServer: {
@@ -19,6 +21,7 @@ module.exports = {
       })
     ]
   },
+
   css: {
     loaderOptions: {
       postcss: {
@@ -31,6 +34,13 @@ module.exports = {
           require('autoprefixer')()
         ]
       }
+    }
+  },
+
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, './src/reset/reset.less')]
     }
   }
 };

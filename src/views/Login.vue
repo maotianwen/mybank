@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <Back />
-    <img src="../assets/logo.png" alt="" class="logo" />
+    <img src="../assets/blue-logo.png" alt="" class="logo" />
     <img src="../assets/welcome.png" alt="" class="font" />
     <div class="inputWrapper">
       <i class="mobile"></i>
@@ -112,7 +112,7 @@ export default {
       color: #b8b9bd;
     }
     &:focus {
-      border-color: #0065b2;
+      border-color: @my-blue;
     }
     &.password {
       margin-bottom: 40px;
@@ -138,7 +138,7 @@ button {
   letter-spacing: 8px;
   &.login-btn {
     color: #ffffff;
-    background-color: #0065b2;
+    background-color: @my-blue;
   }
   &.register-btn {
     border: 1px solid #4a4a4a;

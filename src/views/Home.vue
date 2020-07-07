@@ -28,10 +28,10 @@ export default {
   },
   methods: {
     getFundDetail() {
-      this.api.getFundDetail('000001').then(v => console.log(v));
+      this.$api.getFundDetail('000001').then(v => console.log(v));
     },
     getFund() {
-      this.api.getFund('202015', '007339').then(v => console.log(v));
+      this.$api.getFund('202015', '007339').then(v => console.log(v));
     }
   }
 };
@@ -48,7 +48,7 @@ export default {
   .toall {
     display: inline-block;
     width: 300px;
-    border: 1px solid red;
+    background-color: @my-red;
   }
 }
 </style>

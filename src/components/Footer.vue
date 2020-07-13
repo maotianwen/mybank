@@ -64,7 +64,7 @@ export default {
       width: 44px;
       height: 42px;
       &.home-icon {
-        background-image: url(../assets/home.png);
+        background-image: url('@{assets}home.png');
       }
       &.finance-icon {
         background-image: url(../assets/finance.png);

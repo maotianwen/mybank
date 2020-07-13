@@ -25,6 +25,7 @@ export default {
   },
   mounted() {
     // this.getFund();
+    this.$AP.hideBackButton();
   },
   methods: {
     getFundDetail() {

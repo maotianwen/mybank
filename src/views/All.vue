@@ -8,7 +8,7 @@
       </transition-group>
     </Draggable>
     <StairAnimation :list="otherTest" />
-    <p>我是底部</p>
+    <p @click="choosePhoto">点击选照片</p>
   </div>
 </template>
 
@@ -42,6 +42,9 @@ export default {
   methods: {
     checkMove(event) {
       console.log(event.draggedContext.element.id);
+    },
+    choosePhoto() {
+      this.$AP.pushWindow('http://192.168.0.101:8080/#/login');
     }
   },
   computed: {}

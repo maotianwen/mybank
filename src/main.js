@@ -12,6 +12,7 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 Vue.prototype.$api = api;
+Vue.prototype.$AP = window.ap;
 
 new Vue({
   router,

@@ -2,7 +2,7 @@
   <div class="home">
     <Welcome />
     <div class="header"></div>
-    <button class="toall" @click="$router.push('all')">+</button>
+    <button class="toall" @click="$router.push('login')">登录测试</button>
     <Footer />
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
   .toall {
     display: inline-block;
     width: 300px;
-    background-color: @my-red;
+    border: 1px solid black;
   }
 }
 </style>

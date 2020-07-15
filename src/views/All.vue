@@ -44,7 +44,10 @@ export default {
       console.log(event.draggedContext.element.id);
     },
     choosePhoto() {
-      this.$AP.pushWindow('http://192.168.0.101:8080/#/login');
+      const options = { type: 0 };
+      this.$AP.getLocation(options, res => {
+        this.$AP.alert(`${res.city}`);
+      });
     }
   },
   computed: {}

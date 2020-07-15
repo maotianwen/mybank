@@ -3,6 +3,7 @@
     <Welcome />
     <div class="header"></div>
     <button class="toall" @click="$router.push('login')">登录测试</button>
+    <button class="toall" @click="scan">扫一扫测试</button>
     <Footer />
   </div>
 </template>
@@ -33,6 +34,9 @@ export default {
     },
     getFund() {
       this.$api.getFund('202015', '007339').then(v => console.log(v));
+    },
+    scan() {
+      this.$AP.scan();
     }
   }
 };
@@ -47,8 +51,9 @@ export default {
     height: 87px;
   }
   .toall {
-    display: inline-block;
+    display: block;
     width: 300px;
+    margin: 0 auto 40px;
     border: 1px solid black;
   }
 }

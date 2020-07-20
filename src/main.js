@@ -5,9 +5,9 @@ import store from './store';
 import './utils/rem.js';
 import './reset/reset.css';
 import api from './utils/api';
-import 'mand-mobile/lib/mand-mobile.css';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import './icons';
 
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;

@@ -1,31 +1,29 @@
 <template>
   <div class="footer">
-    <button v-for="(item, index) in mainMenu" :key="index">
-      <div
-        class="icon-wrapper"
-        @click="switchTab(index)"
-        :class="{ selected: menuIndex === index }"
-      >
-        <i :class="item.class"></i>
-        <p>{{ item.text }}</p>
-      </div>
-    </button>
+    <HomeButton @click.native="switchTab(0)" />
+    <FinanceButton @click.native="switchTab(1)" />
+    <LifeButton @click.native="switchTab(2)" />
+    <MineButton @click.native="switchTab(3)" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import HomeButton from '@/components/svg/HomeButton';
+import FinanceButton from '@/components/svg/FinanceButton';
+import LifeButton from '@/components/svg/LifeButton';
+import MineButton from '@/components/svg/MineButton';
 
 export default {
   name: 'Footer',
+  components: {
+    HomeButton,
+    FinanceButton,
+    LifeButton,
+    MineButton
+  },
   data() {
     return {
-      mainMenu: [
-        { text: '首页', class: 'home-icon' },
-        { text: '理财', class: 'finance-icon' },
-        { text: '生活', class: 'life-icon' },
-        { text: '我的', class: 'mine-icon' }
-      ]
+      mainMenu: []
     };
   },
   methods: {
@@ -34,12 +32,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['menuIndex'])
+    // ...mapState(['menuIndex'])
   }
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .footer {
   display: flex;
   height: 114px;
@@ -48,37 +46,23 @@ export default {
   bottom: 0;
   width: 100%;
   align-items: center;
-  button {
+  box-shadow: 0px -2px 8px 2px rgba(0, 0, 0, 0.5);
+  div {
     flex: 0 0 25%;
-    .selected {
-      p {
-        color: @my-blue;
-      }
-      i {
-        &.home-icon {
-          background-image: url(../assets/home-selected.png);
-        }
-      }
-    }
-    i {
-      width: 44px;
-      height: 42px;
-      &.home-icon {
-        background-image: url('@{assets}home.png');
-      }
-      &.finance-icon {
-        background-image: url(../assets/finance.png);
-      }
-      &.life-icon {
-        background-image: url(../assets/life.png);
-      }
-      &.mine-icon {
-        background-image: url(../assets/mine.png);
-      }
-    }
-    p {
-      font-size: 24px;
-    }
+    height: 114px;
+    position: relative;
+  }
+  p {
+    position: absolute;
+    bottom: 10px;
+    font-size: 24px;
+    color: black;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  svg {
+    display: block;
+    margin: 20px auto;
   }
 }
 </style>

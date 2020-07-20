@@ -4,6 +4,8 @@
     <div class="header"></div>
     <button class="toall" @click="$router.push('login')">登录测试</button>
     <button class="toall" @click="scan">扫一扫测试</button>
+    <svg-icon iconClass="default-home" />
+    <svg-icon iconClass="active-home" />
     <Footer />
   </div>
 </template>
@@ -21,7 +23,8 @@ export default {
   },
   data() {
     return {
-      sb: 'asda'
+      sb: 'asda',
+      testAnimation: false
     };
   },
   mounted() {

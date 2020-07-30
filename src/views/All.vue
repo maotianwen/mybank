@@ -7,7 +7,15 @@
         </div>
       </transition-group>
     </Draggable>
-    <StairAnimation :list="otherTest" />
+    <StairAnimation>
+      <p
+        v-for="item in otherTest"
+        :key="item.id"
+        :style="`transition:all ${item.id / 10}s`"
+      >
+        {{ item.text }}
+      </p>
+    </StairAnimation>
     <p @click="choosePhoto">点击选照片</p>
   </div>
 </template>
@@ -68,12 +76,5 @@ export default {
 .ghost {
   opacity: 0.1;
   background: #c8ebfb;
-}
-
-.list-move {
-  transition: all 0.5s;
-}
-.tt {
-  border: 1px solid black;
 }
 </style>

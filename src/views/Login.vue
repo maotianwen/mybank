@@ -1,15 +1,21 @@
 <template>
   <div class="login">
-    <Back />
-    <img src="../assets/blue-logo.png" alt="" class="logo" />
-    <img src="../assets/welcome.png" alt="" class="font" />
+    <Back :iconColor="'#000000'" />
+    <!-- <img src="../assets/blue-logo.png" alt="" class="logo" />
+    <img src="../assets/welcome.png" alt="" class="font" /> -->
+    <svg-icon :iconClass="'banner'" :className="'banner'" />
     <div class="inputWrapper">
-      <i class="mobile"></i>
+      <svg-icon :iconClass="'mobile'" :className="'icon mobile'" />
       <input type="text" placeholder="请输入手机号" />
     </div>
     <div class="inputWrapper">
-      <i class="lock-header" :class="{ locked: locked }"></i>
-      <i class="lock-body"></i>
+      <!-- <i class="lock-header" :class="{ locked: locked }"></i> -->
+      <svg-icon
+        :iconClass="'lock-head'"
+        :className="'icon lock-head'"
+        :class="{ locked: locked }"
+      />
+      <svg-icon :iconClass="'lock-body'" :className="'icon lock-body'" />
       <input
         type="password"
         class="password"
@@ -52,45 +58,33 @@ export default {
 
 <style lang="less" scoped>
 .login {
-  img {
-    margin: 0 auto;
-    &.logo {
-      width: 143px;
-      height: 143px;
-      margin-top: 120px;
-      margin-bottom: 54px;
-    }
-    &.font {
-      width: 438px;
-      height: 90px;
-      margin-bottom: 118px;
-    }
+  .banner {
+    width: 438px;
+    height: 288px;
+    margin: 124px 0 105px 0;
   }
   .inputWrapper {
     line-height: 0;
     width: 100%;
     position: relative;
-    i {
+    .icon {
       position: absolute;
       left: 26px;
       &.mobile {
-        background-image: url(../assets/mobile.png);
         width: 36px;
         height: 46px;
         transform: translateY(-50%);
         top: 50%;
       }
       &.lock-body {
-        background-image: url(../assets/lock-body.png);
         width: 36px;
         height: 26px;
         top: 34px;
       }
-      &.lock-header {
-        background-image: url(../assets/lock-header.png);
+      &.lock-head {
         width: 24px;
         height: 15px;
-        left: 33px;
+        left: 32px;
         top: 16px;
         &.locked {
           animation: bounce 0.4s forwards;
@@ -153,7 +147,7 @@ button {
     transform: translateY(10px);
   }
   100% {
-    transform: translateY(6px);
+    transform: translateY(4px);
   }
 }
 </style>

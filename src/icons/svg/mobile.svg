@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="51px" viewBox="0 0 32 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>形状</title>
+    <desc>Created with Sketch.</desc>
+    <g id="高保真" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="登录" transform="translate(-46.000000, -531.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="手机号" transform="translate(36.000000, 517.000000)">
+                <g id="mobile">
+                    <path d="M37.2,14 L14.8,14 C12.16,14 10,16.1515625 10,18.78125 L10,60.21875 C10,62.8484375 12.16,65 14.8,65 L37.2,65 C39.84,65 42,62.8484375 42,60.21875 L42,18.78125 C42,16.1515625 39.84,14 37.2,14 Z M19.6,16.390625 L32.4,16.390625 L32.4,17.984375 L19.6,17.984375 L19.6,16.390625 Z M26,61.8125 C24.232,61.8125 22.8,60.3860938 22.8,58.625 C22.8,56.8639062 24.232,55.4375 26,55.4375 C27.768,55.4375 29.2,56.8639062 29.2,58.625 C29.2,60.3860938 27.768,61.8125 26,61.8125 Z M38.8,52.25 L13.2,52.25 L13.2,20.375 L38.8,20.375 L38.8,52.25 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

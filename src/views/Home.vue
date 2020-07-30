@@ -4,6 +4,8 @@
     <div class="header"></div>
     <button class="toall" @click="$router.push('login')">登录测试</button>
     <button class="toall" @click="scan">扫一扫测试</button>
+    <button class="toall" @click="$router.push('message')">消息中心</button>
+    <button class="toall" @click="$router.push('all')">动画测试</button>
     <Footer />
   </div>
 </template>

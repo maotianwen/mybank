@@ -1,0 +1,11 @@
+<svg width="22px" height="15px" viewBox="0 0 22 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="高保真" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="登录" transform="translate(-52.000000, -622.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="密码" transform="translate(42.000000, 607.000000)">
+                <g id="password" transform="translate(0.000000, 15.000000)">
+                    <path d="M32,15 L27.2857143,15 L27.2857143,13.1855999 C27.2857143,10.1266287 26.4734003,5.0083197 21,5.0083197 C15.3170759,5.0083197 14.7142857,10.7214169 14.7142857,13.1855999 L14.7142857,15 L10,15 L10,13.1855999 C10,5.17161148 14.3210193,0 21,0 C27.6789807,0 32,5.17161148 32,13.1855999 L32,15 Z" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

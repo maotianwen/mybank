@@ -1,15 +1,12 @@
 <template>
   <div class="login">
     <Back :iconColor="'#000000'" />
-    <!-- <img src="../assets/blue-logo.png" alt="" class="logo" />
-    <img src="../assets/welcome.png" alt="" class="font" /> -->
     <svg-icon :iconClass="'banner'" :className="'banner'" />
     <div class="inputWrapper">
       <svg-icon :iconClass="'mobile'" :className="'icon mobile'" />
       <input type="text" placeholder="请输入手机号" />
     </div>
     <div class="inputWrapper">
-      <!-- <i class="lock-header" :class="{ locked: locked }"></i> -->
       <svg-icon
         :iconClass="'lock-head'"
         :className="'icon lock-head'"

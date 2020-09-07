@@ -1,10 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    {{ testProps }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Search'
+  name: 'Search',
+  props: {
+    testProps: {
+      type: String,
+      default: 'xixi'
+    }
+  }
 };
 </script>
 

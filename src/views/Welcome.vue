@@ -1,8 +1,7 @@
 <template>
   <transition name="fade">
     <div class="welcome" v-if="$store.state.showWelcomePage">
-      <i class="logo"></i>
-      <i class="text"></i>
+      <svg-icon :iconClass="'banner'" :className="'logo'" />
       <p>Copyright © 2020 SAU-MTW. All rights reserved.</p>
     </div>
   </transition>
@@ -29,24 +28,18 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 3;
-  i,
+  svg,
   p {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
   .logo {
-    background-image: url(../assets/blue-logo.png);
-    width: 130px;
-    height: 130px;
-    bottom: 366px;
-  }
-  .text {
     width: 392px;
-    height: 80px;
-    background-image: url(../assets/welcome.png);
+    height: 258px;
     bottom: 236px;
   }
+
   p {
     font-size: 18px;
     font-family: Helvetica;

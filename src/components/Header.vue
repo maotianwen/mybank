@@ -26,6 +26,7 @@ export default {
 .blue-header {
   height: 87px;
   background-color: @my-blue;
+  z-index: 6;
   display: flex;
   align-items: center;
   justify-content: center;

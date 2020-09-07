@@ -12,6 +12,7 @@
       <svg-icon :iconClass="item.icon" :className="'icon'" />
       <p class="main-title">{{ item.name }}</p>
       <p class="sub-title">{{ item.subName }}</p>
+      <div class="border-bottom"></div>
     </div>
     <!-- </StairAnimation> -->
   </div>
@@ -53,28 +54,20 @@ export default {
   components: {
     Header
     // StairAnimation
-  }
+  },
+  props: {}
 };
 </script>
 
 <style lang="less" scoped>
 .message {
-  padding-top: 125px;
+  padding-top: 87px;
 }
 .list-item {
-  border: 0.5px solid #9b9b9b;
   background-color: #ffffff;
-  border-left: none;
-  border-right: none;
   text-align: left;
   position: relative;
-  padding: 20px 0 20px 87px;
-  &.first {
-    border-bottom: none;
-  }
-  &.third {
-    border-top: none;
-  }
+  padding: 30px 0 30px 88px;
   .icon {
     height: 48px;
     left: 24px;
@@ -92,6 +85,15 @@ export default {
     font-size: 20px;
     color: #9b9b9b;
     letter-spacing: 1px;
+  }
+  .border-bottom {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 20px;
+    bottom: 0;
+    opacity: 0.4;
+    background-color: #9b9b9b;
   }
 }
 </style>

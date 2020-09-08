@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ testProps }}
+    <span @click="$router.go(-1)">取消</span>
   </div>
 </template>
 

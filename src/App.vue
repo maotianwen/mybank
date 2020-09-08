@@ -18,7 +18,12 @@ export default {
       const end = to.path;
       const start = from.path;
       console.log(to.path, from.path);
-      if (end.includes('login') || start.includes('login')) {
+      if (
+        end.includes('login') ||
+        start.includes('login') ||
+        end.includes('search') ||
+        start.includes('search')
+      ) {
         this.transitionName = 'fade';
       } else {
         this.transitionName = start < end ? 'slide-left' : 'slide-right';

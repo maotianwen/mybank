@@ -1,5 +1,5 @@
 <template>
-  <transition-group :appear="true" name="stair">
+  <transition-group :appear="true" :name="animationName">
     <slot></slot>
   </transition-group>
 </template>
@@ -11,7 +11,13 @@ export default {
     return {};
   },
   methods: {},
-  mounted() {}
+  mounted() {},
+  props: {
+    animationName: {
+      type: String,
+      default: 'down-up'
+    }
+  }
 };
 </script>
 
@@ -23,5 +29,15 @@ export default {
 .stair-leave-to {
   opacity: 0;
   transform: translateX(-100%);
+}
+
+.down-up-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.down-up-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
 }
 </style>

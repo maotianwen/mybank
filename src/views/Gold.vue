@@ -1,62 +1,51 @@
 <template>
-  <div><ECharts :options="polar" /></div>
+  <div>
+    <LineChart />
+  </div>
 </template>
 
 <script>
-import ECharts from 'vue-echarts';
-import 'echarts/lib/chart/line';
-import 'echarts/lib/component/polar';
+import LineChart from '@/components/LineChart';
 
 export default {
   name: 'Gold',
   components: {
-    ECharts
+    LineChart
+  },
+  created() {
+    this.getFundDetail('000001');
+  },
+  mounted() {
+    // this.getFundDetail('000001');
   },
   data() {
-    let data = [];
-
-    for (let i = 0; i <= 360; i++) {
-      let t = (i / 180) * Math.PI;
-      let r = Math.sin(2 * t) * Math.cos(2 * t);
-      data.push([r, i]);
-    }
-
     return {
-      polar: {
-        title: {
-          text: '极坐标双数值轴'
-        },
-        legend: {
-          data: ['line']
-        },
-        polar: {
-          center: ['50%', '54%']
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross'
-          }
-        },
-        angleAxis: {
-          type: 'value',
-          startAngle: 0
-        },
-        radiusAxis: {
-          min: 0
-        },
-        series: [
-          {
-            coordinateSystem: 'polar',
-            name: 'line',
-            type: 'line',
-            showSymbol: false,
-            data: data
-          }
-        ],
-        animationDuration: 2000
+      goldData: {
+        name: '',
+        manager: '',
+        netWorth: 0,
+        type: '',
+        lastWeekGrowth: 0,
+        lastMonthGrowth: 0,
+        lastThreeMonthsGrowth: 0,
+        lastSixMonthsGrowth: 0,
+        lastYearGrowth: 0,
+        sevenDaysYearIncome: 0,
+        dayGrowth: 0
       }
     };
+  },
+  methods: {
+    async getFundDetail(code) {
+      const res = await this.$api.getFundDetail(code);
+      console.log(res);
+      this.goldData = res.data.data;
+    }
+    //   this.asd = lineData.data.data;
+    //   this.valueArr = lineData.data.data.netWorthData
+    //     .slice(-143)
+    //     .map(item => item[2]);
+    // }
   }
 };
 </script>

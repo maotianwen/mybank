@@ -26,8 +26,8 @@
         <p>短信登录</p>
       </div>
     </div>
-    <button class="login-btn" @click="login">登录</button>
-    <button class="register-btn">注册</button>
+    <button class="login-btn" @click="login">登录/注册</button>
+    <!-- <button class="register-btn">注册</button> -->
   </div>
 </template>
 
@@ -123,7 +123,7 @@ button {
   display: block;
   margin: 0 auto 30px;
   width: 600px;
-  height: 76px;
+  height: 86px;
   font-size: 36px;
   border-radius: 6px;
   letter-spacing: 8px;

@@ -1,12 +1,7 @@
 <template>
   <div class="home">
     <Welcome />
-    <div class="header"></div>
-    <button class="toall" @click="$router.push('login')">登录测试</button>
-    <button class="toall" @click="scan">扫一扫测试</button>
-    <button class="toall" @click="$router.push('message')">消息中心</button>
-    <button class="toall" @click="$router.push('all')">动画测试</button>
-    <button class="toall" @click="$router.push('gold')">黄金测试</button>
+    <HomePage />
     <Footer />
   </div>
 </template>
@@ -15,12 +10,14 @@
 // @ is an alias to /src
 import Footer from '@/components/Footer';
 import Welcome from '@/views/Welcome';
+import HomePage from '@/views/HomePage';
 
 export default {
   name: 'Home',
   components: {
     Footer,
-    Welcome
+    Welcome,
+    HomePage
   },
   data() {
     return {

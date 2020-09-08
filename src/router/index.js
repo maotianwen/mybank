@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Message from '../views/Message.vue';
 import Gold from '../views/Gold.vue';
+import Search from '../views/Search.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path: '/gold',
     component: Gold
+  },
+  {
+    path: '/search',
+    component: Search
   },
   {
     path: '/about/cash',

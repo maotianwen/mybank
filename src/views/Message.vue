@@ -62,6 +62,7 @@ export default {
 <style lang="less" scoped>
 .message {
   padding-top: 87px;
+  overflow: hidden;
 }
 .list-item {
   background-color: #ffffff;

@@ -6,7 +6,11 @@
         <svg-icon :iconClass="'login'" @click.native="$router.push('login')" />
         <SearchInput />
         <svg-icon :iconClass="'robot'" :className="'robot'" />
-        <svg-icon :iconClass="'message'" :className="'message'" />
+        <svg-icon
+          :iconClass="'message'"
+          :className="'message'"
+          @click.native="$router.push('message')"
+        />
       </div>
       <div class="main-menu">
         <div
@@ -31,10 +35,10 @@
       </div>
     </div>
     <Recommend />
-    <swiper :options="swiperOptions">
-      <swiper-slide>2</swiper-slide>
-      <swiper-slide>1</swiper-slide>
-      <swiper-slide>3</swiper-slide>
+    <swiper ref="mySwiper" :options="swiperOptions">
+      <swiper-slide><img src="../assets/ad1.jpg" /></swiper-slide>
+      <swiper-slide><img src="../assets/ad2.jpg" /></swiper-slide>
+      <swiper-slide><img src="../assets/ad3.jpg" /></swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
@@ -44,7 +48,15 @@
 import SearchInput from '@/components/SearchInput';
 import Recommend from '@/components/Recommend';
 import { mapState } from 'vuex';
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import {
+  Swiper as SwiperClass,
+  Pagination,
+  Mousewheel,
+  Autoplay
+} from 'swiper/swiper.esm';
+import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter';
+SwiperClass.use([Pagination, Mousewheel, Autoplay]);
+const { Swiper, SwiperSlide } = getAwesomeSwiper(SwiperClass);
 import 'swiper/swiper-bundle.css';
 
 export default {
@@ -52,12 +64,23 @@ export default {
   components: {
     SearchInput,
     Recommend,
-    Swiper,
-    SwiperSlide
+    SwiperSlide,
+    Swiper
   },
 
   data() {
     return {
+      swiperOptions: {
+        autoplay: {
+          delay: 2400,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        loop: true
+        // Some Swiper option/callback...
+      },
       menuArr: [
         {
           name: '扫一扫',
@@ -75,20 +98,15 @@ export default {
           name: '转账',
           id: 3,
           icon: 'transaction',
-          event: this.scan
+          event: this.showAlertToast
         },
         {
           name: '我的账户',
           id: 4,
           icon: 'my-account',
-          event: this.scan
+          event: this.showAlertToast
         }
-      ],
-      swiperOptions: {
-        pagination: {
-          el: '.swiper-pagination'
-        }
-      }
+      ]
     };
   },
   methods: {
@@ -104,6 +122,9 @@ export default {
     }
   },
   computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
+    },
     ...mapState(['customMenu'])
   }
 };
@@ -111,6 +132,8 @@ export default {
 
 <style lang="less" scoped>
 .home-page {
+  overflow-x: hidden;
+  padding-bottom: 264px;
   .header {
     background-color: @my-blue;
     height: 380px;
@@ -128,6 +151,7 @@ export default {
       width: 100%;
       top: 0;
       position: fixed;
+      z-index: 6;
       height: 95px;
       align-items: center;
       padding-left: 30px;
@@ -181,5 +205,26 @@ export default {
       margin-bottom: 10px;
     }
   }
+  .swiper-container {
+    margin-top: 72px;
+  }
+  .swiper-slide {
+    height: 252px;
+    overflow: hidden;
+    img {
+      height: 252px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .swiper-pagination {
+    bottom: -10px;
+  }
+}
+</style>
+
+<style>
+.swiper-pagination-bullet {
+  margin: 0 12px !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Welcome />
-    <HomePage />
+    <HomePage v-if="menuIndex === 0" />
     <Footer />
   </div>
 </template>
@@ -11,6 +11,7 @@
 import Footer from '@/components/Footer';
 import Welcome from '@/views/Welcome';
 import HomePage from '@/views/HomePage';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
@@ -27,6 +28,9 @@ export default {
   mounted() {
     // this.getFund();
     this.$AP.hideBackButton();
+  },
+  computed: {
+    ...mapState(['menuIndex'])
   },
   methods: {
     getFundDetail() {

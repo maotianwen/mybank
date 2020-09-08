@@ -27,7 +27,7 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 3;
+  z-index: 7;
   svg,
   p {
     position: absolute;

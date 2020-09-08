@@ -43,6 +43,7 @@ export default {
   height: 114px;
   background-color: #ffffff;
   position: fixed;
+  z-index: 6;
   bottom: 0;
   width: 100%;
   align-items: center;

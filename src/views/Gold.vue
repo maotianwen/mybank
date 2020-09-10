@@ -32,7 +32,7 @@ export default {
   },
 
   mounted() {
-    this.getFundDetail('000216');
+    this.getFundDetail(this.$route.params.id);
   },
   computed: {},
   data() {

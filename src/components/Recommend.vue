@@ -33,6 +33,7 @@
         :key="item.id"
         class="list-item"
         :style="`transition:all ${item.id / 10}s`"
+        @click="$router.push(`gold/${item.code}`)"
       >
         <p class="item-title">{{ item.title }}</p>
         <p class="item-subtitle">{{ item.subtitle }}</p>
@@ -64,25 +65,28 @@ export default {
     return {
       recommendArr: [
         {
-          title: '汇添富和聚宝',
+          title: '招商行业精选',
           subtitle: '无固定期限',
           rate: '2.92%',
           description: '七日年化收益',
-          id: 1
+          id: 1,
+          code: '000746'
         },
         {
-          title: '乾元恒赢60天',
-          subtitle: '代销坚信理财',
+          title: '鹏华酒指数',
+          subtitle: '股票基金',
           rate: '3.65%',
           description: '七日年化收益',
-          id: 2
+          id: 2,
+          code: '160632'
         },
         {
-          title: '精选好基',
-          subtitle: '货币市场基金',
-          rate: '57.04%',
-          description: '近一年收益率',
-          id: 3
+          title: '新华优选消费',
+          subtitle: '混合基金',
+          rate: '2.45%',
+          description: '七日年化收益',
+          id: 3,
+          code: 519150
         }
       ]
     };

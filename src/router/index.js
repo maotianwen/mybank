@@ -21,7 +21,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/gold',
+    path: '/gold/:id',
     component: () => import(/* webpackChunkName: "gold" */ '../views/Gold.vue')
   },
   {

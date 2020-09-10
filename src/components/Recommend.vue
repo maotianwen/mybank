@@ -33,7 +33,7 @@
         :key="item.id"
         class="list-item"
         :style="`transition:all ${item.id / 10}s`"
-        @click="$router.push(`gold/${item.code}`)"
+        @click="() => jumpToDetail(item.code)"
       >
         <p class="item-title">{{ item.title }}</p>
         <p class="item-subtitle">{{ item.subtitle }}</p>
@@ -56,6 +56,10 @@ export default {
     async mapHotFundtoData() {
       const res = await this.$api.getHotFund();
       this.recommendArr = res.data.data.rank.slice(0, 3);
+    },
+    jumpToDetail(code) {
+      this.$AP.showLoading();
+      this.$router.push(`gold/${code}`);
     }
   },
   mounted() {

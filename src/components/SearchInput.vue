@@ -26,7 +26,7 @@ export default {
   line-height: 0;
   input {
     display: inline-block;
-    width: 466px;
+    width: 526px;
     height: 52px;
     margin-left: 23px;
     border-radius: 6px;

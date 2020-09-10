@@ -1,7 +1,13 @@
 <template>
   <div class="blue-header">
-    <Back />
+    <Back v-show="needBack" />
     <p>{{ title }}</p>
+    <svg-icon
+      :iconClass="'message'"
+      @click.native="$router.push('message')"
+      className="message"
+      v-show="needMessage"
+    />
   </div>
 </template>
 
@@ -17,6 +23,14 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    needBack: {
+      type: Boolean,
+      default: true
+    },
+    needMessage: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -38,6 +52,10 @@ export default {
     letter-spacing: 3px;
     color: #ffffff;
     font-size: 36px;
+  }
+  .message {
+    position: absolute;
+    right: 38px;
   }
 }
 </style>

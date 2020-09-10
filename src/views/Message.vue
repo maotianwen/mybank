@@ -10,8 +10,10 @@
       :style="`transition:all ${item.id / 10}s`"
     >
       <svg-icon :iconClass="item.icon" :className="'icon'" />
-      <p class="main-title">{{ item.name }}</p>
-      <p class="sub-title">{{ item.subName }}</p>
+      <div>
+        <p class="main-title">{{ item.name }}</p>
+        <p class="sub-title">{{ item.subName }}</p>
+      </div>
       <div class="border-bottom"></div>
     </div>
     <!-- </StairAnimation> -->
@@ -68,7 +70,11 @@ export default {
   background-color: #ffffff;
   text-align: left;
   position: relative;
-  padding: 30px 0 30px 88px;
+  display: flex;
+  align-items: center;
+  height: 124px;
+  padding-left: 88px;
+  margin-bottom: 4px;
   .icon {
     height: 48px;
     left: 24px;
@@ -90,9 +96,9 @@ export default {
   .border-bottom {
     position: absolute;
     width: 100%;
-    height: 1px;
-    left: 20px;
     bottom: 0;
+    left: 88px;
+    height: 1px;
     opacity: 0.4;
     background-color: #9b9b9b;
   }

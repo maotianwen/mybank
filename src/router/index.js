@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Message from '../views/Message.vue';
-import Gold from '../views/Gold.vue';
 import Search from '../views/Search.vue';
 
 Vue.use(VueRouter);
@@ -23,7 +22,7 @@ const routes = [
   },
   {
     path: '/gold',
-    component: Gold
+    component: () => import(/* webpackChunkName: "gold" */ '../views/Gold.vue')
   },
   {
     path: '/search',
@@ -31,11 +30,16 @@ const routes = [
   },
   {
     path: '/about/cash',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Cash.vue')
+    component: () => {
+      return import(/* webpackChunkName: "about" */ '../views/Cash.vue');
+    }
   },
   {
     path: '/all',
-    component: () => import(/* webpackChunkName: "about" */ '../views/All.vue')
+    component: () => {
+      console.log('alasd');
+      return import(/* webpackChunkName: "about" */ '../views/All.vue');
+    }
   }
 ];
 

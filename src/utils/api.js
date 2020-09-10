@@ -18,5 +18,9 @@ export default {
   //获取基金详情
   getFundDetail(code) {
     return this.get(`fund/detail?code=${code}`);
+  },
+  //获取热门基金
+  getHotFund() {
+    return this.get(`fund/hot`);
   }
 };

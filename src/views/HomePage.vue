@@ -5,7 +5,7 @@
       <div class="tool-bar">
         <svg-icon :iconClass="'login'" @click.native="$router.push('login')" />
         <SearchInput />
-        <svg-icon :iconClass="'robot'" :className="'robot'" />
+        <!-- <svg-icon :iconClass="'robot'" :className="'robot'" /> -->
         <svg-icon
           :iconClass="'message'"
           :className="'message'"
@@ -25,7 +25,12 @@
       </div>
     </div>
     <div class="main-part">
-      <div v-for="item in customMenu" :key="item.id" class="flex-item">
+      <div
+        v-for="item in customMenu"
+        :key="item.id"
+        class="flex-item"
+        @click="() => jumpUrl(item.url)"
+      >
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
       </div>
@@ -112,13 +117,18 @@ export default {
   methods: {
     scan() {
       this.$AP.scan();
-      console.log('a');
     },
     showAlertToast() {
       this.$AP.showToast({
         content: '暂不支持此功能',
         duration: 1000
       });
+    },
+    jumpUrl(url) {
+      if (url) {
+        this.$AP.showLoading();
+        this.$router.push(url);
+      }
     }
   },
   computed: {
@@ -159,14 +169,13 @@ export default {
       .robot {
         margin-left: 33px;
         position: relative;
-        top: -2px;
+        // top: -2px;
         transform: scale(1.2);
       }
       .message {
         margin-left: 32px;
         position: relative;
-        top: 4px;
-        transform: scale(1.1);
+        transform: scale(1.2);
       }
     }
     .main-menu {
@@ -226,5 +235,11 @@ export default {
 <style>
 .swiper-pagination-bullet {
   margin: 0 12px !important;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  transition: all 0.4s;
+}
+.swiper-pagination-bullet-active {
 }
 </style>

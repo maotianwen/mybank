@@ -51,28 +51,37 @@ export default {
   components: {
     StairAnimation
   },
+  methods: {
+    async mapHotFundtoData() {
+      const res = await this.$api.getHotFund();
+      this.recommendArr = res.data.data.rank.slice(0, 3);
+    }
+  },
+  mounted() {
+    // this.mapHotFundtoData();
+  },
   data() {
     return {
       recommendArr: [
         {
-          title: '定期363天',
-          subtitle: '代销坚信理财',
-          rate: '4.00%',
-          description: '业绩比较基准',
+          title: '汇添富和聚宝',
+          subtitle: '无固定期限',
+          rate: '2.92%',
+          description: '七日年化收益',
           id: 1
         },
         {
-          title: '定期363天',
+          title: '乾元恒赢60天',
           subtitle: '代销坚信理财',
-          rate: '4.00%',
-          description: '业绩比较基准',
+          rate: '3.65%',
+          description: '七日年化收益',
           id: 2
         },
         {
-          title: '定期363天',
-          subtitle: '代销坚信理财',
-          rate: '4.00%',
-          description: '业绩比较基准',
+          title: '精选好基',
+          subtitle: '货币市场基金',
+          rate: '57.04%',
+          description: '近一年收益率',
           id: 3
         }
       ]

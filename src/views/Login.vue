@@ -6,13 +6,8 @@
       <svg-icon :iconClass="'mobile'" :className="'icon mobile'" />
       <input type="text" placeholder="请输入手机号" />
     </div>
-    <div class="inputWrapper">
-      <svg-icon
-        :iconClass="'lock-head'"
-        :className="'icon lock-head'"
-        :class="{ locked: locked }"
-      />
-      <svg-icon :iconClass="'lock-body'" :className="'icon lock-body'" />
+    <div class="inputWrapper password-wrapper">
+      <svg-icon :iconClass="'lock'" :className="'icon lock'" />
       <input
         type="password"
         class="password"
@@ -21,10 +16,10 @@
         @blur="locked = password.length !== 0"
         v-model="password"
       />
-      <div class="other-options">
-        <p>忘记密码？</p>
-        <p>短信登录</p>
-      </div>
+    </div>
+    <div class="other-options">
+      <p>忘记密码？</p>
+      <p>短信登录</p>
     </div>
     <button class="login-btn" @click="login">登录/注册</button>
     <!-- <button class="register-btn">注册</button> -->
@@ -61,9 +56,13 @@ export default {
     margin: 124px 0 105px 0;
   }
   .inputWrapper {
-    line-height: 0;
+    height: 76px;
     width: 100%;
     position: relative;
+    margin-bottom: 34px;
+    &.password-wrapper {
+      margin-bottom: 22px;
+    }
     .icon {
       position: absolute;
       left: 26px;
@@ -73,16 +72,10 @@ export default {
         transform: translateY(-50%);
         top: 50%;
       }
-      &.lock-body {
+      &.lock {
         width: 36px;
-        height: 26px;
-        top: 34px;
-      }
-      &.lock-head {
-        width: 24px;
-        height: 15px;
-        left: 32px;
-        top: 16px;
+        transform: translateY(-50%);
+        top: 50%;
         &.locked {
           animation: bounce 0.4s forwards;
         }

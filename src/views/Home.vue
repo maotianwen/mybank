@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <Welcome />
+    <GuidePage v-if="!showWelcomePage && menuIndex === 4" />
     <HomePage v-if="menuIndex === 0" />
-    <Footer />
+    <Mine v-if="menuIndex === 3" />
+    <Footer v-if="menuIndex !== 4" />
   </div>
 </template>
 
@@ -11,6 +13,8 @@
 import Footer from '@/components/Footer';
 import Welcome from '@/views/Welcome';
 import HomePage from '@/views/HomePage';
+import GuidePage from '@/views/GuidePage';
+import Mine from '@/views/Mine';
 import { mapState } from 'vuex';
 
 export default {
@@ -18,7 +22,9 @@ export default {
   components: {
     Footer,
     Welcome,
-    HomePage
+    HomePage,
+    GuidePage,
+    Mine
   },
   data() {
     return {
@@ -30,7 +36,7 @@ export default {
     this.$AP.hideBackButton();
   },
   computed: {
-    ...mapState(['menuIndex'])
+    ...mapState(['menuIndex', 'showWelcomePage'])
   },
   methods: {
     getFundDetail() {

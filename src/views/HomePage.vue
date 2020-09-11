@@ -103,7 +103,7 @@ export default {
           name: '转账',
           id: 3,
           icon: 'transaction',
-          event: this.showAlertToast
+          event: this.transferMoney
         },
         {
           name: '我的账户',
@@ -117,6 +117,9 @@ export default {
   methods: {
     scan() {
       this.$AP.scan();
+    },
+    transferMoney() {
+      this.$router.push('transfermoney');
     },
     showAlertToast() {
       this.$AP.showToast({
@@ -135,7 +138,7 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     },
-    ...mapState(['customMenu'])
+    ...mapState(['customMenu', 'isLogin'])
   }
 };
 </script>
@@ -201,7 +204,7 @@ export default {
   .main-part {
     height: 328px;
     padding-top: 32px;
-    font-size: 24px;
+    font-size: 26px;
     white-space: pre-wrap;
     .flex-item {
       display: inline-block;
@@ -240,6 +243,6 @@ export default {
   height: 10px;
   transition: all 0.4s;
 }
-.swiper-pagination-bullet-active {
-}
+/* .swiper-pagination-bullet-active {
+} */
 </style>

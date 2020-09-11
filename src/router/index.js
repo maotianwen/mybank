@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Message from '../views/Message.vue';
 import Search from '../views/Search.vue';
+import TransferMoney from '../views/TransferMoney';
 
 Vue.use(VueRouter);
 
@@ -29,10 +30,8 @@ const routes = [
     component: Search
   },
   {
-    path: '/about/cash',
-    component: () => {
-      return import(/* webpackChunkName: "about" */ '../views/Cash.vue');
-    }
+    path: '/transfermoney',
+    component: TransferMoney
   },
   {
     path: '/all',

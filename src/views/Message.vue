@@ -2,13 +2,7 @@
   <div class="message">
     <Header :title="'消息中心'" />
     <!-- <StairAnimation> -->
-    <div
-      v-for="item in msgOptions"
-      :key="item.id"
-      :class="item.className"
-      class="list-item"
-      :style="`transition:all ${item.id / 10}s`"
-    >
+    <div v-for="item in msgOptions" :key="item.id" class="list-item">
       <svg-icon :iconClass="item.icon" :className="'icon'" />
       <div>
         <p class="main-title">{{ item.name }}</p>
@@ -33,21 +27,18 @@ export default {
           name: '动账通知',
           subName: '网银实时转至他行通知',
           icon: 'notification',
-          className: 'first',
           id: 1
         },
         {
           name: '建行活动',
           subName: '超级月末周',
           icon: 'activity',
-          className: 'second',
           id: 2
         },
         {
           name: '系统通知',
           subName: '关于系统维护暂停部分服务的公告',
           icon: 'system',
-          className: 'third',
           id: 3
         }
       ]
@@ -84,7 +75,7 @@ export default {
   }
 
   .main-title {
-    font-size: 32px;
+    font-size: 26px;
     color: #000000;
     letter-spacing: 2px;
   }

@@ -3,6 +3,8 @@
     <Welcome />
     <GuidePage v-if="!showWelcomePage && menuIndex === 4" />
     <HomePage v-if="menuIndex === 0" />
+    <Finance v-if="menuIndex === 1" />
+    <Life v-if="menuIndex === 2" />
     <Mine v-if="menuIndex === 3" />
     <Footer v-if="menuIndex !== 4" />
   </div>
@@ -14,6 +16,8 @@ import Footer from '@/components/Footer';
 import Welcome from '@/views/Welcome';
 import HomePage from '@/views/HomePage';
 import GuidePage from '@/views/GuidePage';
+import Finance from '@/views/Finance';
+import Life from '@/views/Life';
 import Mine from '@/views/Mine';
 import { mapState } from 'vuex';
 
@@ -24,7 +28,9 @@ export default {
     Welcome,
     HomePage,
     GuidePage,
-    Mine
+    Mine,
+    Life,
+    Finance
   },
   data() {
     return {

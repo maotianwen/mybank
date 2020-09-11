@@ -56,7 +56,7 @@ export default {
   p {
     position: absolute;
     bottom: 10px;
-    font-size: 24px;
+    font-size: 26px;
     color: black;
     left: 50%;
     transform: translateX(-50%);

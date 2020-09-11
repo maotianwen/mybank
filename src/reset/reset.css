@@ -69,9 +69,9 @@ input {
   box-sizing: border-box;
 }
 
-::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder {
   color: #999;
-}
+} */
 
 table {
   table-layout: fixed;

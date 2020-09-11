@@ -3,6 +3,39 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const arr = [
+  {
+    text: '理财推荐',
+    url: 'gold/000216',
+    id: 1,
+    keywords: ['理', '财', '理财']
+  },
+  {
+    text: '基金推荐',
+    url: 'gold/160632',
+    id: 2,
+    keywords: ['基', '金', '基金']
+  },
+  {
+    text: '黄金详情',
+    url: 'gold/000216',
+    id: 3,
+    keywords: ['黄', '金', '黄金']
+  },
+  {
+    text: '登录/注册',
+    url: 'login',
+    id: 4,
+    keywords: ['注', '册', '注册', '登', '录', '登录']
+  },
+  {
+    text: '查看我的消息',
+    url: 'message',
+    id: 5,
+    keywords: ['我', '的', '消', '息', '我的', '消息', '我的消息']
+  }
+];
+
 export default new Vuex.Store({
   state: {
     showWelcomePage: true,
@@ -18,7 +51,8 @@ export default new Vuex.Store({
       { name: '债券', url: '', icon: 'debenture', id: 6 },
       { name: '跨境金融', url: '', icon: 'aboard-finance', id: 7 },
       { name: '热门活动', url: '', icon: 'popular-activity', id: 8 }
-    ]
+    ],
+    searchList: arr
   },
   mutations: {
     haveWelcomed(state) {

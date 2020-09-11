@@ -9,6 +9,7 @@
 <script>
 import ECharts from 'vue-echarts';
 import 'echarts/lib/chart/line';
+import 'echarts/lib/component/tooltip';
 
 export default {
   name: 'LineChart',
@@ -31,25 +32,23 @@ export default {
   data() {
     return {
       lineOptions: {
-        // Make gradient line here
-        visualMap: [
-          {
-            show: false,
-            type: 'continuous',
-            seriesIndex: 0,
-            min: 0,
-            max: 400
-          }
-        ],
-
-        title: [
-          {
-            left: 'center',
-            text: 'Gradient along the y axis'
-          }
-        ],
         tooltip: {
-          trigger: 'axis'
+          trigger: 'axis',
+          show: true,
+          position: [0, -30],
+          formatter: params => {
+            let data = params[0].value;
+            let time = params[0].axisValue;
+            return `${time}<br/>${data}`;
+          }
+          // axisPointer: {
+          //   type: 'line',
+          //   axis: 'auto',
+          //   lineStyle: {
+          //     color: '#000000',
+          //     width: 2
+          //   }
+          // }
         },
         xAxis: [
           {
@@ -81,7 +80,10 @@ export default {
           {
             left: 40,
             bottom: '20%',
-            width: 375
+            tooltip: {
+              show: true
+            }
+            // width: 375
           }
         ],
         series: [

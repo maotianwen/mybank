@@ -71,6 +71,7 @@ export default {
 .mine {
   padding-top: 87px;
   overflow: hidden;
+  padding-bottom: 264px;
   button {
     width: 432px;
     height: 88px;

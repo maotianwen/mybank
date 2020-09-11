@@ -167,18 +167,11 @@ export default {
       z-index: 6;
       height: 95px;
       align-items: center;
-      padding-left: 30px;
+      padding: 0 30px;
       background-color: @my-blue;
-      .robot {
-        margin-left: 33px;
-        position: relative;
-        // top: -2px;
-        transform: scale(1.2);
-      }
       .message {
-        margin-left: 32px;
         position: relative;
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
     .main-menu {

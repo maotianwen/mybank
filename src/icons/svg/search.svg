@@ -5,8 +5,8 @@
             <g id="顶部" transform="translate(34.000000, 14.000000)">
                 <g id="搜索" transform="translate(58.000000, 7.000000)">
                     <g id="编组-7" transform="translate(18.000000, 11.000000)">
-                        <circle id="椭圆形" stroke="#0066B3" stroke-width="2" cx="7.5" cy="7.5" r="7.5"></circle>
-                        <rect id="矩形" fill="#0066B3" transform="translate(16.939340, 17.939340) rotate(-45.000000) translate(-16.939340, -17.939340) " x="15.9393398" y="11.4393398" width="2" height="13" rx="1"></rect>
+                        <circle id="椭圆形" stroke="#999" stroke-width="2" cx="7.5" cy="7.5" r="7.5"></circle>
+                        <rect id="矩形" fill="#999" transform="translate(16.939340, 17.939340) rotate(-45.000000) translate(-16.939340, -17.939340) " x="15.9393398" y="11.4393398" width="2" height="13" rx="1"></rect>
                     </g>
                 </g>
             </g>

@@ -4,7 +4,7 @@
     <GuidePage v-if="!showWelcomePage && menuIndex === 4" />
     <HomePage v-if="menuIndex === 0" />
     <Finance v-if="menuIndex === 1" />
-    <Life v-if="menuIndex === 2" />
+    <Life v-show="menuIndex === 2" />
     <Mine v-if="menuIndex === 3" />
     <Footer v-if="menuIndex !== 4" />
   </div>

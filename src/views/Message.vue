@@ -2,24 +2,26 @@
   <div class="message">
     <Header :title="'消息中心'" />
     <!-- <StairAnimation> -->
-    <div v-for="item in msgOptions" :key="item.id" class="list-item">
+    <!-- <div v-for="item in msgOptions" :key="item.id" class="list-item">
       <svg-icon :iconClass="item.icon" :className="'icon'" />
       <div>
         <p class="main-title">{{ item.name }}</p>
         <p class="sub-title">{{ item.subName }}</p>
       </div>
       <div class="border-bottom"></div>
-    </div>
+    </div> -->
     <!-- </StairAnimation> -->
+    <ListItem v-for="item in msgOptions" :key="item.id" :itemObj="item" />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
+import ListItem from '@/components/ListItem.vue';
 // import StairAnimation from '@/components/StairAnimation';
 
 export default {
-  name: 'Search',
+  name: 'Message',
   data() {
     return {
       msgOptions: [
@@ -45,10 +47,10 @@ export default {
     };
   },
   components: {
-    Header
+    Header,
+    ListItem
     // StairAnimation
-  },
-  props: {}
+  }
 };
 </script>
 

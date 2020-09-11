@@ -36,7 +36,7 @@
       </div>
     </div>
     <LineChart :lineData="lineData" :timeInterval="timeIndex" />
-    <div class="time-slide">
+    <div class="time-slide" v-if="lineData.length">
       <div
         v-for="(item, index) in timeIndexArr"
         :key="item.index"
@@ -161,6 +161,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.fund {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .red-num {
   color: @my-red;
 }

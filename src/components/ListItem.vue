@@ -55,7 +55,7 @@ export default {
     bottom: 0;
     left: 88px;
     height: 1px;
-    opacity: 0.4;
+    opacity: 0.2;
     background-color: #9b9b9b;
   }
 }

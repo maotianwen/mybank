@@ -56,6 +56,7 @@ export default {
   .message {
     position: absolute;
     right: 38px;
+    transform: scale(1.1);
   }
 }
 </style>

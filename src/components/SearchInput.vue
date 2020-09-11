@@ -36,19 +36,11 @@ export default {
   display: inline-block;
   position: relative;
   line-height: 0;
-  .white-svg {
-    #oval {
-      stroke: #fff;
-    }
-    #rect {
-      fill: #fff;
-    }
-  }
+  margin: 0 auto;
   input {
     display: inline-block;
     width: 526px;
     height: 52px;
-    margin-left: 23px;
     border-radius: 6px;
     padding-left: 54px;
     &::-webkit-input-placeholder {
@@ -57,6 +49,7 @@ export default {
     &.transparent-input {
       background-color: transparent;
       background-color: rgba(255, 255, 255, 0.25);
+      width: 476px;
       &::-webkit-input-placeholder {
         color: #fff;
       }
@@ -64,7 +57,7 @@ export default {
   }
   svg {
     position: absolute;
-    left: 28px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     height: 30px;

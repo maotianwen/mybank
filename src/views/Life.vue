@@ -1,5 +1,5 @@
 <template>
-  <div class="life">
+  <div class="life add-padding-bottom">
     <div class="tool-bar" :class="hasScrolled && 'fixed-bar'">
       <svg-icon iconClass="location" @click.native="getLocation" />
       <span>{{ location }}</span>
@@ -110,8 +110,6 @@ export default {
 
 <style lang="less" scoped>
 .life {
-  padding-bottom: 264px;
-
   .life-header {
     height: 294px;
   }
@@ -124,7 +122,7 @@ export default {
     height: 95px;
     align-items: center;
     transition: all 0.4s;
-    padding: 0 30px;
+    padding: 0 34px;
     &.fixed-bar {
       background-color: @my-blue;
     }
@@ -143,7 +141,7 @@ export default {
     top: 0;
   }
   .main-menu {
-    margin: 322px 26px 44px 26px;
+    margin: 322px 34px 44px 34px;
     height: 180px;
     background: #ffffff;
     position: relative;
@@ -162,15 +160,14 @@ export default {
   }
   .ad {
     background-image: url(../assets/ad4.png);
-    margin: 0 26px 32px 26px;
+    margin: 0 34px 32px 34px;
     height: 208px;
     border-radius: 24px;
   }
   .hot-content {
-    height: 302px;
-    padding: 47px 20px 0 20px;
+    padding: 47px 20px 23px 20px;
     box-shadow: @shadow;
-    margin: 0 26px;
+    margin: 0 34px;
     border-radius: 24px;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page add-padding-bottom">
     <div class="header">
       <svg-icon :iconClass="'blur-logo'" :className="'background-logo'" />
       <div class="tool-bar">
@@ -145,8 +145,6 @@ export default {
 
 <style lang="less" scoped>
 .home-page {
-  overflow-x: hidden;
-  padding-bottom: 264px;
   .header {
     background-color: @my-blue;
     height: 380px;

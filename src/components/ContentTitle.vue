@@ -53,7 +53,7 @@ export default {
   svg {
     width: 16px;
     transform: rotateY(-180deg);
-    margin: 0 30px 0 auto;
+    margin: 0 34px 0 auto;
   }
 }
 </style>

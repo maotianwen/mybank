@@ -34,12 +34,20 @@ export default {
       lineOptions: {
         tooltip: {
           trigger: 'axis',
+          borderColor: '#0066B3',
+          borderWidth: 1,
+          textStyle: {
+            color: '#000000'
+          },
+          backgroundColor: '#ffffff',
+          extraCssText: 'box-shadow: 0px 0px 4px 1px #86a2ef;',
+          padding: [4, 8],
           show: true,
-          position: [0, -30],
+          position: [0, -20],
           formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
-            return `${time}<br/>${data}`;
+            return `<div style="text-align:left">${time}<br/>${data}<div/>`;
           }
           // axisPointer: {
           //   type: 'line',

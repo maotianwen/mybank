@@ -45,7 +45,7 @@ export default {
     letter-spacing: 2px;
   }
   .sub-title {
-    font-size: 20px;
+    font-size: 22px;
     color: #9b9b9b;
     letter-spacing: 1px;
   }

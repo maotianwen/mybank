@@ -1,16 +1,6 @@
 <template>
   <div class="message">
     <Header :title="'消息中心'" />
-    <!-- <StairAnimation> -->
-    <!-- <div v-for="item in msgOptions" :key="item.id" class="list-item">
-      <svg-icon :iconClass="item.icon" :className="'icon'" />
-      <div>
-        <p class="main-title">{{ item.name }}</p>
-        <p class="sub-title">{{ item.subName }}</p>
-      </div>
-      <div class="border-bottom"></div>
-    </div> -->
-    <!-- </StairAnimation> -->
     <ListItem v-for="item in msgOptions" :key="item.id" :itemObj="item" />
   </div>
 </template>
@@ -58,42 +48,5 @@ export default {
 .message {
   padding-top: 87px;
   overflow: hidden;
-}
-.list-item {
-  background-color: #ffffff;
-  text-align: left;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 124px;
-  padding-left: 88px;
-  margin-bottom: 4px;
-  .icon {
-    height: 48px;
-    left: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-  }
-
-  .main-title {
-    font-size: 26px;
-    color: #000000;
-    letter-spacing: 2px;
-  }
-  .sub-title {
-    font-size: 20px;
-    color: #9b9b9b;
-    letter-spacing: 1px;
-  }
-  .border-bottom {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 88px;
-    height: 1px;
-    opacity: 0.4;
-    background-color: #9b9b9b;
-  }
 }
 </style>

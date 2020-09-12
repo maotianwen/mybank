@@ -1,5 +1,5 @@
 <template>
-  <div class="fund">
+  <div class="fund add-padding-bottom">
     <Header :needBack="true" title="基金详情" />
     <div class="fund-title">
       <p>{{ this.goldData.name }}({{ this.goldData.code }})</p>
@@ -36,7 +36,7 @@
       </div>
     </div>
     <LineChart :lineData="lineData" :timeInterval="timeIndex" />
-    <div class="time-slide" v-if="lineData.length">
+    <div class="time-slide">
       <div
         v-for="(item, index) in timeIndexArr"
         :key="item.index"
@@ -51,8 +51,11 @@
         :style="{ transform: `translateX(${100 * modalIndex}%)` }"
       ></div>
     </div>
-    <div class="fund-detail">
-      <p>{{ this.goldData.manager }}</p>
+    <div class="fund-detail" v-if="lineData.length">
+      <p>
+        <svg-icon iconClass="manager" />
+        {{ this.goldData.manager }}
+      </p>
     </div>
     <div class="fund-footer">
       <div class="subscribe flex-item" @click="hasStarred = !hasStarred">
@@ -242,16 +245,31 @@ export default {
 }
 .data-bar {
   display: flex;
-  padding-left: 28px;
+  padding: 0 28px;
   align-items: center;
   text-align: left;
+  justify-content: space-between;
+  margin-bottom: 42px;
   .data-value {
-    font-size: 36px;
+    font-size: 38px;
     font-family: DINAlternate-Bold, DINAlternate;
     font-weight: bold;
   }
   .data-key {
+    font-size: 16px;
+  }
+}
+.fund-detail {
+  p {
     font-size: 28px;
+    margin-left: 22px;
+    text-align: left;
+    display: flex;
+    // align-items: center;
+  }
+  svg {
+    transform: scale(0.8);
+    margin-right: 34px;
   }
 }
 .fund-footer {

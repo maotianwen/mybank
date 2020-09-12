@@ -1,5 +1,5 @@
 <template>
-  <div class="mine">
+  <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
     <div class="log-info">
       <div class="avatar"></div>
@@ -70,8 +70,6 @@ export default {
 <style lang="less" scoped>
 .mine {
   padding-top: 87px;
-  overflow: hidden;
-  padding-bottom: 264px;
   button {
     width: 432px;
     height: 88px;

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" :class="currentIndex === 2 && 'when-second-active'">
-    <button @click="skip">立即体验</button>
+    <button @click="skip">跳过</button>
     <swiper :options="swiperOptions" ref="mySwiper">
       <swiper-slide><img src="../assets/guide1.png" /></swiper-slide>
       <swiper-slide><img src="../assets/guide2.png" /></swiper-slide>
@@ -79,11 +79,11 @@ button {
   color: #ffffff;
   top: 46px;
   right: 32px;
-  padding: 12px 24px;
-  border-radius: 36px;
-  letter-spacing: 2px;
-  border: 1px solid #abc5ff;
-  background-color: #abc5ff;
+  font-size: 26px;
+  padding: 8px 34px;
+  border-radius: 26px;
+  letter-spacing: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
 img {

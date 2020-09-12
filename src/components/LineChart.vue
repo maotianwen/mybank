@@ -1,8 +1,10 @@
 <template>
   <div class="chartWrapper">
     <ECharts :options="lineOptions" v-if="lineData.length" ref="mychart" />
-    <span class="min-time">{{ minTime }}</span>
-    <span class="max-time">{{ maxTime }}</span>
+    <div class="time-wrapper">
+      <span class="min-time">{{ minTime }}</span>
+      <span class="max-time">{{ maxTime }}</span>
+    </div>
   </div>
 </template>
 
@@ -47,27 +49,26 @@ export default {
           formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
-            return `<div style="text-align:left">${time}<br/>${data}<div/>`;
+            return `<div style="text-align:left">日期:${time}<br/>单位净值:${data}<div/>`;
           }
-          // axisPointer: {
-          //   type: 'line',
-          //   axis: 'auto',
-          //   lineStyle: {
-          //     color: '#000000',
-          //     width: 2
-          //   }
-          // }
         },
         xAxis: [
           {
             data: [],
-            interval: 0,
             axisTick: {
               show: false
             },
             axisLabel: {
-              interval: 0,
               show: false
+            },
+            axisPointer: {
+              type: 'line',
+              axis: 'auto',
+              z: 2,
+              lineStyle: {
+                color: '#ffffff',
+                width: 1
+              }
             }
           }
         ],
@@ -86,18 +87,46 @@ export default {
         ],
         grid: [
           {
-            left: 40,
-            bottom: '20%',
+            left: '12%',
+            bottom: '2%',
             tooltip: {
               show: true
             }
-            // width: 375
           }
         ],
         series: [
           {
             type: 'line',
             showSymbol: false,
+            smooth: true,
+            lineStyle: {
+              color: '#fff'
+            },
+            itemStyle: {
+              color: '#0066b3',
+              shadowColor: '#0066B3',
+              shadowBlur: 6
+            },
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1.2,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: '#0066b3' // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: '#ffffff' // 100% 处的颜色
+                  }
+                ],
+                global: false // 缺省为 false
+              }
+            },
             data: []
           }
         ]
@@ -121,14 +150,20 @@ export default {
   transform: scale(0.8);
   span {
     font-size: 24px;
-    position: absolute;
-    bottom: 40px;
   }
-  .min-time {
-    left: 24px;
+  .time-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
   }
-  .max-time {
-    right: -34px;
-  }
+  // .min-time {
+  //   // text-align: left;
+  //   // margin: 0 auto 0 24px;
+  // }
+  // .max-time {
+  //   // text-align: right;
+  //   // margin-left: auto;
+  // }
 }
 </style>

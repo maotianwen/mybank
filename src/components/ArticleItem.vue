@@ -1,7 +1,7 @@
 <template>
   <div class="article">
     <div class="text">
-      <svg-icon iconClass="arrow" className="heartBeat" />
+      <svg-icon iconClass="arrow" />
       <p class="title">{{ articleInfo.title }}</p>
     </div>
     <p class="hot-nums">

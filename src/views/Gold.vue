@@ -7,7 +7,6 @@
         <span class="mix-type">混合型</span>
         <span class="low-risk">低风险型</span>
       </div>
-      <p>首次购买{{ (this.goldData.buyMin / 100).toFixed(2) }}元起</p>
     </div>
     <div class="data-bar">
       <div>
@@ -19,7 +18,7 @@
         </p>
         <p class="data-key">日涨跌幅</p>
       </div>
-      <div>
+      <div class="year-growth">
         <p
           :class="this.goldData.lastYearGrowth > 0 ? 'red-num' : 'green-num'"
           class="data-value"
@@ -31,7 +30,7 @@
       <div class="latest-netWorth">
         <p class="data-value">{{ this.goldData.netWorth }}</p>
         <p class="data-key">
-          最新净值{{ this.goldData.netWorthDate.substring(5) }}
+          最新净值
         </p>
       </div>
     </div>
@@ -52,10 +51,14 @@
       ></div>
     </div>
     <div class="fund-detail" v-if="lineData.length">
+      <p class="buy-min">
+        首次购买{{ (this.goldData.buyMin / 100).toFixed(2) }}元起
+      </p>
       <p>
         <svg-icon iconClass="manager" />
         {{ this.goldData.manager }}
       </p>
+      <p>基金规模{{ this.goldData.fundScale }}</p>
     </div>
     <div class="fund-footer">
       <div class="subscribe flex-item" @click="hasStarred = !hasStarred">
@@ -96,7 +99,7 @@ export default {
   data() {
     return {
       goldData: {
-        code: '000216',
+        code: '000000',
         name: '',
         manager: '',
         netWorth: 0,
@@ -191,7 +194,7 @@ export default {
     }
     .type-wrapper {
       display: flex;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
     span {
       font-size: 20px;
@@ -248,15 +251,24 @@ export default {
   padding: 0 28px;
   align-items: center;
   text-align: left;
-  justify-content: space-between;
+  // justify-content: space-between;
   margin-bottom: 42px;
+  .year-growth {
+    margin-left: 66px;
+  }
+  .latest-netWorth {
+    margin-left: 66px;
+    .data-value {
+      color: @my-yellow;
+    }
+  }
   .data-value {
     font-size: 38px;
     font-family: DINAlternate-Bold, DINAlternate;
     font-weight: bold;
   }
   .data-key {
-    font-size: 16px;
+    font-size: 26px;
   }
 }
 .fund-detail {
@@ -266,6 +278,9 @@ export default {
     text-align: left;
     display: flex;
     // align-items: center;
+  }
+  .buy-min {
+    font-size: 18px;
   }
   svg {
     transform: scale(0.8);

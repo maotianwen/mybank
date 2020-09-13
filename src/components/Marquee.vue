@@ -1,7 +1,9 @@
 <template>
   <div class="marquee-container">
     <ul :class="['marquee', { go: animate }]">
-      <li v-for="item in list" :key="item">{{ item }}</li>
+      <li v-for="item in list" :key="item" :class="whiteFont && 'white-font'">
+        {{ item }}
+      </li>
     </ul>
   </div>
 </template>
@@ -15,27 +17,18 @@ export default {
       animate: false
     };
   },
-  computed: {
-    list() {
-      return JSON.parse(JSON.stringify(this.province));
-    }
-  },
   props: {
-    province: {
+    list: {
       type: Array,
       default() {
         return [];
       }
+    },
+    whiteFont: {
+      type: Boolean,
+      default: false
     }
   },
-  created() {
-    // this.list = this.province;
-  },
-  // watch: {
-  //   province(newValue) {
-  //     this.list = newValue;
-  //   }
-  // },
   mounted() {
     setInterval(this.play, 3000);
   },
@@ -52,18 +45,26 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .marquee-container {
-  //   position: relative;
+  position: absolute;
+  top: 0;
+  left: 56px;
   overflow: hidden;
-  height: 130px;
-  background-color: goldenrod;
+  height: 52px;
+  background-color: transparent;
   li {
-    line-height: 130px;
+    line-height: 52px;
+    font-size: 26px;
+    text-align: left;
+    color: @my-grey;
+    &.white-font {
+      color: #ffffff;
+    }
   }
 }
 .go {
-  margin-top: -130px;
+  transform: translateY(-52px);
   transition: all 0.4s;
 }
 </style>

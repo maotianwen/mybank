@@ -1,21 +1,33 @@
 <template>
-  <div class="input-wrapper">
+  <div class="input-wrapper" @click="$router.push('search')">
     <svg-icon :iconClass="isTransparent ? 'white-search' : 'search'" />
     <input
       type="text"
-      @focus="jumpToSearch"
-      placeholder="搜索"
       readonly="true"
       :class="isTransparent && 'transparent-input'"
     />
+    <Marquee :list="marqueeList" :whiteFont="isTransparent" />
   </div>
 </template>
 
 <script>
+import Marquee from '@/components/Marquee';
+
 export default {
   name: 'SearchInput',
+  components: {
+    Marquee
+  },
   data() {
-    return {};
+    return {
+      marqueeList: [
+        '理财活动信息如何获取',
+        '金融知识服务宣传月',
+        '证券市场',
+        '在我的板块进行意见反馈',
+        '如何查看基金详情'
+      ]
+    };
   },
   props: {
     isTransparent: {
@@ -45,6 +57,7 @@ export default {
     padding-left: 54px;
     &::-webkit-input-placeholder {
       color: #999;
+      font-size: 26px;
     }
     &.transparent-input {
       background-color: transparent;

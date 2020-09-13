@@ -1,15 +1,7 @@
 <template>
   <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
-    <div class="log-info">
-      <div class="avatar"></div>
-    </div>
-    <div class="account">
-      账户总览
-    </div>
-    <div class="month-data">
-      本月收支
-    </div>
+    <Earning />
     <ListItem v-for="item in MyList" :itemObj="item" :key="item.id" />
     <button @click="logOut">退出登录</button>
   </div>
@@ -18,12 +10,15 @@
 <script>
 import Header from '@/components/Header';
 import ListItem from '@/components/ListItem';
+import Earning from '@/components/Earning';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Mine',
   components: {
     Header,
-    ListItem
+    ListItem,
+    Earning
   },
   data() {
     return {
@@ -56,6 +51,9 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapState(['isLogined'])
+  },
   methods: {
     changeProps() {
       this.needMessage = !this.needMessage;
@@ -70,6 +68,23 @@ export default {
 <style lang="less" scoped>
 .mine {
   padding-top: 87px;
+  .avatar {
+    border-radius: 50%;
+    width: 120px;
+    display: inline-block;
+    height: 120px;
+    background-color: #a9acaf;
+    .user {
+      transform: scale(1.5);
+    }
+  }
+  .no-login {
+    font-size: 34px;
+    vertical-align: top;
+    position: relative;
+    top: 18px;
+    left: 24px;
+  }
   button {
     width: 432px;
     height: 88px;

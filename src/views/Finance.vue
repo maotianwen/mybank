@@ -1,16 +1,7 @@
 <template>
   <div class="finance add-padding-bottom">
     <Header title="理财" :needMessage="true" :needBack="false" />
-    <div class="storage regular-margin">
-      <div class="benefit">
-        <p class="nums">0.48</p>
-        <p>昨日收益(元)</p>
-      </div>
-      <div class="total-storage">
-        <p class="nums">0.00</p>
-        <p>总持仓(元)</p>
-      </div>
-    </div>
+    <Earning />
     <div class="main-part regular-margin">
       <div v-for="item in menuArr" :key="item.id" class="flex-item">
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
@@ -53,12 +44,15 @@
 import ContentTitle from '@/components/ContentTitle';
 import ArticleItem from '@/components/ArticleItem';
 import Header from '@/components/Header';
+import Earning from '@/components/Earning';
+
 export default {
   name: 'Finance',
   components: {
     ContentTitle,
     ArticleItem,
-    Header
+    Header,
+    Earning
   },
   data() {
     return {
@@ -108,40 +102,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.regular-margin {
-  margin: 0 34px;
-}
-.nums {
-  font-family: DINAlternate-Bold, DINAlternate;
-}
 .finance {
   padding-top: 120px;
-  .storage {
-    height: 220px;
-    background: linear-gradient(180deg, #acdafc 0%, #0066b3 100%);
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    padding: 12px 36px 0 36px;
-    text-align: left;
-    color: #ffffff;
-    box-shadow: @shadow;
-    margin-bottom: 40px;
-    .benefit {
-      font-size: 28px;
-      .nums {
-        font-size: 36px;
-      }
-    }
-    .total-storage {
-      font-size: 28px;
-      margin-left: auto;
-      text-align: right;
-      .nums {
-        font-size: 32px;
-      }
-    }
-  }
   .fund-recommend {
     margin-bottom: 38px;
     display: flex;

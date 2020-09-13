@@ -49,7 +49,7 @@ export default {
           formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
-            return `<div style="text-align:left">日期:${time}<br/>单位净值:${data}<div/>`;
+            return `<div style="text-align:left;letter-spacing:1px">日期:${time}<br/>单位净值:<span style="color:#FDCC14;font-weight:bold">${data}</span><div/>`;
           }
         },
         xAxis: [

@@ -4,8 +4,13 @@
     <Earning />
 
     <Earning />
-    <ListItem v-for="item in MyList" :itemObj="item" :key="item.id" />
-    <button @click="logOut">退出登录</button>
+    <ListItem
+      v-for="item in MyList"
+      :itemObj="item"
+      :key="item.id"
+      @click.native="item.event"
+    />
+    <button @click="logOut" v-show="isLogined">退出登录</button>
   </div>
 </template>
 
@@ -30,25 +35,29 @@ export default {
           name: '安全中心',
           subName: '',
           icon: 'safety',
-          id: 1
+          id: 1,
+          event: this.showAlertToast
         },
         {
           name: '清理缓存',
           subName: '',
           icon: 'clear-cache',
-          id: 2
+          id: 2,
+          event: this.showAlertToast
         },
         {
           name: '意见反馈',
           subName: '',
           icon: 'suggest',
-          id: 3
+          id: 3,
+          event: this.showAlertToast
         },
         {
           name: '关于',
           subName: '',
           icon: 'about',
-          id: 4
+          id: 4,
+          event: this.jumpToAbout
         }
       ]
     };
@@ -57,11 +66,17 @@ export default {
     ...mapState(['isLogined'])
   },
   methods: {
-    changeProps() {
-      this.needMessage = !this.needMessage;
-    },
     logOut() {
       this.$store.commit('logout');
+    },
+    showAlertToast() {
+      this.$AP.showToast({
+        content: '暂不支持此功能',
+        duration: 1000
+      });
+    },
+    jumpToAbout() {
+      this.$router.push('about');
     }
   }
 };

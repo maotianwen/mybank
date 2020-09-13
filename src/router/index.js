@@ -5,6 +5,7 @@ import Login from '../views/Login.vue';
 import Message from '../views/Message.vue';
 import Search from '../views/Search.vue';
 import TransferMoney from '../views/TransferMoney';
+import About from '../views/About';
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,10 @@ const routes = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/about',
+    component: About
   },
   {
     path: '/message',

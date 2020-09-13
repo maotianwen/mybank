@@ -52,7 +52,7 @@
 <script>
 import SearchInput from '@/components/SearchInput';
 import Recommend from '@/components/Recommend';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import {
   Swiper as SwiperClass,
   Pagination,
@@ -109,12 +109,13 @@ export default {
           name: '我的账户',
           id: 4,
           icon: 'my-account',
-          event: this.showAlertToast
+          event: this.jumpToMyAccount
         }
       ]
     };
   },
   methods: {
+    ...mapMutations(['changeIndex']),
     scan() {
       this.$AP.scan();
     },
@@ -132,13 +133,16 @@ export default {
         this.$AP.showLoading();
         this.$router.push(url);
       }
+    },
+    jumpToMyAccount() {
+      this.changeIndex(3);
     }
   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     },
-    ...mapState(['customMenu', 'isLogin'])
+    ...mapState(['customMenu', 'isLogined'])
   }
 };
 </script>
@@ -156,6 +160,7 @@ export default {
       bottom: -78px;
       width: 245px;
       height: 257px;
+      z-index: 1;
     }
     .tool-bar {
       display: flex;
@@ -175,6 +180,8 @@ export default {
     .main-menu {
       display: flex;
       justify-content: space-around;
+      position: relative;
+      z-index: 2;
       margin-top: 148px;
       .item-wrapper {
         width: 120px;

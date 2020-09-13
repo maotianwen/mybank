@@ -2,6 +2,8 @@
   <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
     <Earning />
+
+    <Earning />
     <ListItem v-for="item in MyList" :itemObj="item" :key="item.id" />
     <button @click="logOut">退出登录</button>
   </div>
@@ -67,7 +69,7 @@ export default {
 
 <style lang="less" scoped>
 .mine {
-  padding-top: 87px;
+  padding-top: 144px;
   .avatar {
     border-radius: 50%;
     width: 120px;

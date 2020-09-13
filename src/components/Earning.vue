@@ -1,7 +1,9 @@
 <template>
-  <div class="storage regular-margin">
+  <div class="storage regular-margin" @click="loginOrNot">
     <svg-icon iconClass="blur-logo" className="blur-logo" />
-    <p v-if="!isLogined" class="no-login">登录查看收益情况</p>
+    <p v-if="!isLogined" class="no-login">
+      登录查看收益情况
+    </p>
     <div v-if="isLogined" class="flex-wrapper">
       <div class="benefit">
         <p>昨日收益(元)</p>
@@ -11,6 +13,9 @@
         <p>总持仓(元)</p>
         <p class="nums">¥0.00</p>
       </div>
+      <p class="random-sentence">
+        {{ randomSentence[(Math.random() * 4) >>> 0] }}
+      </p>
     </div>
   </div>
 </template>
@@ -21,7 +26,14 @@ import { mapState } from 'vuex';
 export default {
   name: 'Earning',
   data() {
-    return {};
+    return {
+      randomSentence: [
+        '胸中之富，真正之富。',
+        '财富源于储蓄。',
+        '善学者，假人之长以补其短。',
+        '不要将鸡蛋都放进同一个篮子里。'
+      ]
+    };
   },
   computed: {
     ...mapState(['isLogined'])
@@ -30,6 +42,13 @@ export default {
     infoType: {
       type: String,
       default: 'account'
+    }
+  },
+  methods: {
+    loginOrNot() {
+      if (!this.isLogined) {
+        this.$router.push('login');
+      }
     }
   }
 };
@@ -54,7 +73,8 @@ export default {
     right: 60px;
   }
   .no-login {
-    font-size: 42px;
+    font-size: 38px;
+    font-weight: bold;
   }
 
   .benefit {
@@ -74,6 +94,10 @@ export default {
     .nums {
       font-size: 42px;
     }
+  }
+  .random-sentence {
+    font-size: 20px;
+    margin-top: 12px;
   }
 }
 </style>

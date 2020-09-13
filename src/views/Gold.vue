@@ -2,9 +2,10 @@
   <div class="fund add-padding-bottom">
     <Header :needBack="true" title="基金详情" />
     <div class="fund-title">
-      <p>{{ this.goldData.name }}({{ this.goldData.code }})</p>
+      <p>{{ this.goldData.name }}</p>
       <div class="type-wrapper">
-        <span class="mix-type">混合型</span>
+        <span class="fund-code nums">{{ this.goldData.code }}</span>
+        <span class="mix-type">{{ this.goldData.type }}</span>
         <span class="low-risk">低风险型</span>
       </div>
     </div>
@@ -34,6 +35,7 @@
         </p>
       </div>
     </div>
+    <!-- <p class="content-title">净值走势图</p> -->
     <LineChart :lineData="lineData" :timeInterval="timeIndex" />
     <div class="time-slide" v-if="lineData.length">
       <div
@@ -51,14 +53,20 @@
       ></div>
     </div>
     <div class="fund-detail" v-if="lineData.length">
+      <p class="fund-document">基金档案</p>
+
       <p class="buy-min">
+        <svg-icon iconClass="first-buy" />
         首次购买{{ (this.goldData.buyMin / 100).toFixed(2) }}元起
       </p>
       <p>
-        <svg-icon iconClass="manager" />
-        {{ this.goldData.manager }}
+        <svg-icon iconClass="low-risk" />
+        较低风险，投资策略稳健
       </p>
-      <p>基金规模{{ this.goldData.fundScale }}</p>
+      <p>
+        <svg-icon iconClass="fund-scale" />
+        基金规模{{ this.goldData.fundScale }}
+      </p>
     </div>
     <div class="fund-footer">
       <div class="subscribe flex-item" @click="hasStarred = !hasStarred">
@@ -99,7 +107,7 @@ export default {
   data() {
     return {
       goldData: {
-        code: '000000',
+        code: '',
         name: '',
         manager: '',
         netWorth: 0,
@@ -167,6 +175,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.content-title {
+  font-size: 36px;
+  text-align: left;
+  padding-left: 28px;
+}
 .fund {
   position: absolute;
   width: 100%;
@@ -190,7 +203,7 @@ export default {
       font-weight: 400;
       color: #000000;
       letter-spacing: 2px;
-      margin-bottom: 28px;
+      margin-bottom: 18px;
     }
     .type-wrapper {
       display: flex;
@@ -203,9 +216,15 @@ export default {
       padding: 2px 16px;
       border: 2px solid transparent;
       border-radius: 3px;
+      &.fund-code {
+        border-color: @my-blue;
+        color: @my-blue;
+        font-size: 24px;
+      }
       &.mix-type {
         color: @my-red;
         border-color: @my-red;
+        margin-left: 18px;
       }
       &.low-risk {
         color: @my-green;
@@ -217,7 +236,7 @@ export default {
 }
 .time-slide {
   height: 44px;
-  margin: 0 22px 24px 22px;
+  margin: 0 22px 48px 22px;
   border: 1px solid #0066b3;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px 1px #86a2ef;
@@ -252,14 +271,16 @@ export default {
   align-items: center;
   text-align: left;
   // justify-content: space-between;
-  margin-bottom: 42px;
+  border-bottom: 1px solid @my-grey;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
   .year-growth {
     margin-left: 66px;
   }
   .latest-netWorth {
     margin-left: 66px;
     .data-value {
-      color: @my-yellow;
+      color: @my-blue;
     }
   }
   .data-value {
@@ -272,19 +293,22 @@ export default {
   }
 }
 .fund-detail {
+  .fund-document {
+    font-size: 34px;
+    margin-bottom: 28px;
+  }
   p {
     font-size: 28px;
     margin-left: 22px;
+    margin-bottom: 30px;
     text-align: left;
     display: flex;
     // align-items: center;
   }
-  .buy-min {
-    font-size: 18px;
-  }
+
   svg {
-    transform: scale(0.8);
-    margin-right: 34px;
+    transform: scale(1.1);
+    margin-right: 24px;
   }
 }
 .fund-footer {

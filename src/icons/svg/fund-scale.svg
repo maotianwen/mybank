@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="34px" viewBox="0 0 30 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="高保真" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="基金详情页" transform="translate(-29.000000, -1309.000000)">
+            <g id="基金档案" transform="translate(26.000000, 1109.000000)">
+                <g id="图表描述" transform="translate(3.000000, 67.000000)">
+                    <g id="基金" transform="translate(1.000000, 134.000000)">
+                        <polygon id="路径" fill="#EF3535" fill-rule="nonzero" points="13.7063844 21.5424358 10.6553187 18.4176189 7.15744052 22 5 19.7904581 10.6553187 13.9984373 13.7063844 17.1232542 16.6340533 14.1248169 15.2319172 14.1248169 15.2319172 11 24 11"></polygon>
+                        <rect id="矩形" stroke="#0066B3" stroke-width="1.4" x="0" y="0" width="28" height="32" rx="10"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

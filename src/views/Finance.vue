@@ -17,6 +17,7 @@
       v-for="item in fundArr"
       :key="item.id"
       class="fund-recommend regular-margin"
+      @click="() => jumpToGold(item.code)"
     >
       <div class="year-growth ">
         <p class="red-percent">{{ item.rate }}</p>
@@ -72,31 +73,37 @@ export default {
       ],
       fundArr: [
         {
-          title: '建信现金添益A',
+          title: '东方创新科技混合',
           subtitle: '无固定期限',
           rate: '2.92%',
           description: '7日年化',
           id: 1,
-          code: '003022'
+          code: '001702'
         },
         {
-          title: '汇添富和聚宝',
-          subtitle: '货币市场基金',
+          title: '鹏华品牌传承混合',
+          subtitle: '混合基金',
           rate: '2.04%',
           description: '7日年化',
           id: 2,
-          code: '000600'
+          code: '000431'
         },
         {
-          title: '新华优选消费',
-          subtitle: '混合基金',
+          title: '中银智能制造股票',
+          subtitle: '股票型',
           rate: '2.45%',
           description: '7日年化',
           id: 3,
-          code: 519150
+          code: '001476'
         }
       ]
     };
+  },
+  methods: {
+    jumpToGold(code) {
+      this.$AP.showLoading();
+      this.$router.push(`gold/${code}`);
+    }
   }
 };
 </script>

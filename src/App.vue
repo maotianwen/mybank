@@ -17,7 +17,7 @@ export default {
     $route(to, from) {
       const end = to.path;
       const start = from.path;
-      console.log(to.path, from.path);
+      // console.log(to.path, from.path);
       if (
         end.includes('login') ||
         start.includes('login') ||

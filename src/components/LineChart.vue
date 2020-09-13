@@ -49,7 +49,7 @@ export default {
           formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
-            return `<div style="text-align:left;letter-spacing:1px">日期:${time}<br/>单位净值:<span style="color:#FDCC14;font-weight:bold">${data}</span><div/>`;
+            return `<div style="text-align:left;letter-spacing:1px;">日期:<span style="color:#9b9b9b;font-weight:bold" class="nums">${time}</span><br/>单位净值:<span style="color:#0066b3;font-weight:bold" class="nums">${data}</span><div/>`;
           }
         },
         xAxis: [
@@ -147,7 +147,7 @@ export default {
 <style lang="less" scoped>
 .chartWrapper {
   width: 100%;
-  transform: scale(0.8);
+  transform: scale(0.8) translateX(-68px);
   span {
     font-size: 24px;
   }

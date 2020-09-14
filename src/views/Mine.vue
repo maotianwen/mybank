@@ -50,7 +50,7 @@ export default {
           subName: '',
           icon: 'suggest',
           id: 3,
-          event: this.showAlertToast
+          event: this.jumpToSuggestion
         },
         {
           name: '关于',
@@ -77,6 +77,10 @@ export default {
     },
     jumpToAbout() {
       this.$router.push('about');
+    },
+    jumpToSuggestion() {
+      this.$AP.showLoading();
+      this.$router.push('suggestion');
     }
   }
 };

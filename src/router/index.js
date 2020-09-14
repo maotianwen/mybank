@@ -44,6 +44,11 @@ const routes = [
       console.log('alasd');
       return import(/* webpackChunkName: "about" */ '../views/All.vue');
     }
+  },
+  {
+    path: '/suggestion',
+    component: () =>
+      import(/* webpackChunkName: "suggestion" */ '../views/Suggestion')
   }
 ];
 

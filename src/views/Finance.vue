@@ -1,9 +1,14 @@
 <template>
   <div class="finance add-padding-bottom">
     <Header title="理财" :needMessage="true" :needBack="false" />
-    <Earning />
+    <Earning infoType="finance" />
     <div class="main-part regular-margin">
-      <div v-for="item in menuArr" :key="item.id" class="flex-item">
+      <div
+        v-for="item in menuArr"
+        :key="item.id"
+        class="flex-item"
+        @click="showAlertToast"
+      >
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
       </div>
@@ -103,6 +108,12 @@ export default {
     jumpToGold(code) {
       this.$AP.showLoading();
       this.$router.push(`gold/${code}`);
+    },
+    showAlertToast() {
+      this.$AP.showToast({
+        content: '暂不支持此功能',
+        duration: 1000
+      });
     }
   }
 };

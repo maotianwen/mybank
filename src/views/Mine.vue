@@ -1,9 +1,9 @@
 <template>
   <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
-    <Earning />
+    <Earning infoType="account" />
 
-    <Earning />
+    <Earning infoType="finance" />
     <ListItem
       v-for="item in MyList"
       :itemObj="item"

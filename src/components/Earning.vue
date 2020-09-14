@@ -1,8 +1,11 @@
 <template>
   <div class="storage regular-margin" @click="loginOrNot">
     <svg-icon iconClass="blur-logo" className="blur-logo" />
-    <p v-if="!isLogined" class="no-login">
+    <p v-if="!isLogined && infoType === 'finance'" class="no-login">
       登录查看收益情况
+    </p>
+    <p v-if="!isLogined && infoType === 'account'" class="no-login">
+      登录查看账户总览
     </p>
     <div v-if="isLogined" class="flex-wrapper">
       <div class="benefit">

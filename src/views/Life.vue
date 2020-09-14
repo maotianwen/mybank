@@ -12,7 +12,12 @@
     </div>
     <img src="../assets/city.png" alt="" />
     <div class="main-menu">
-      <div v-for="item in menuArr" :key="item.id" class="item-wrapper align">
+      <div
+        v-for="item in menuArr"
+        :key="item.id"
+        class="item-wrapper align"
+        @click="showAlertToast"
+      >
         <svg-icon :iconClass="item.icon" />
         <p>{{ item.name }}</p>
       </div>

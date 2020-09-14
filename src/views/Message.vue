@@ -1,7 +1,12 @@
 <template>
   <div class="message">
     <Header :title="'消息中心'" />
-    <ListItem v-for="item in msgOptions" :key="item.id" :itemObj="item" />
+    <ListItem
+      v-for="item in msgOptions"
+      :key="item.id"
+      :itemObj="item"
+      @click.native="showAlertToast"
+    />
   </div>
 </template>
 
@@ -40,6 +45,14 @@ export default {
     Header,
     ListItem
     // StairAnimation
+  },
+  methods: {
+    showAlertToast() {
+      this.$AP.showToast({
+        content: '暂不支持此功能',
+        duration: 1000
+      });
+    }
   }
 };
 </script>

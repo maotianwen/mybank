@@ -39,10 +39,22 @@ export default {
       password: ''
     };
   },
+  mounted() {
+    this.showHint();
+  },
   methods: {
     login() {
       this.$store.commit('login');
       this.$router.go(-1);
+    },
+    showHint() {
+      if (this.$store.state.isLogined) {
+        return;
+      }
+      this.$AP.showToast({
+        content: '走个流程！点一下登录即可 - -',
+        duration: 2500
+      });
     }
   }
 };

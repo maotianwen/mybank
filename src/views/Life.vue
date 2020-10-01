@@ -115,9 +115,6 @@ export default {
 
 <style lang="less" scoped>
 .life {
-  .life-header {
-    height: 294px;
-  }
   .tool-bar {
     display: flex;
     width: 100%;

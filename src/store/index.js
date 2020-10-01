@@ -66,6 +66,9 @@ export default new Vuex.Store({
     },
     changeIndex(state, index) {
       state.menuIndex = index;
+    },
+    editMenu(state, newMenu) {
+      state.customMenu = newMenu;
     }
   },
   actions: {},

@@ -34,7 +34,7 @@
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
       </div>
-      <div class="flex-item">
+      <div class="flex-item" @click="() => jumpUrl('all')">
         <svg-icon :iconClass="'all'" :className="'flex-icon'" />
         <p>全部</p>
       </div>

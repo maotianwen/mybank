@@ -1,5 +1,8 @@
 <template>
-  <div class="fund add-padding-bottom">
+  <div
+    class="fund add-padding-bottom"
+    :class="!lineData.length && '.before-finished'"
+  >
     <Header :needBack="true" title="基金详情" />
     <div class="fund-title">
       <p>{{ this.goldData.name }}</p>

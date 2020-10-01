@@ -3,7 +3,7 @@
     <Header title="关于" :needBack="true" />
     <p class="title">关于此应用</p>
     <article>
-      这个建设银行是我的毕业设计，其源代码都部署在https://github.com/maotianwen/mybank。主要技术栈也就是Vue和Echarts相关的一些东西。难肯定是算不上的，毕竟真要肝出来一个完成度很高的银行APP，好像也没有什么意义。。更何况金融类APP都很复杂，我只是脑海中有些想法想实现一下，就做了这个demo。
+      这个建设银行是我的毕业设计，其源代码都部署在https://github.com/maotianwen/mybank。主要技术栈也就是Vue和Echarts相关的一些东西。金融类APP都很复杂，我只是脑海中有些想法想实现一下，就做了这个demo。
       <br />
       <p>
         为什么我推荐大家用支付宝扫码体验呢？因为有的功能是通过调用Alipay

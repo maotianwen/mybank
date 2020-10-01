@@ -1,45 +1,34 @@
 <template>
-  <div class="all">
-    <Draggable v-model="test" v-bind="dragOptions">
+  <div class="all add-padding-bottom">
+    <Header title="全部功能" :needBack="true" />
+    <Draggable v-model="menuList" v-bind="dragOptions">
       <transition-group>
-        <div v-for="element in test" :key="element.id" class="custom-item">
-          {{ element.text }}
+        <div v-for="element in menuList" :key="element.id" class="custom-item">
+          {{ element.name }}
         </div>
       </transition-group>
     </Draggable>
-    <StairAnimation>
-      <p
-        v-for="item in otherTest"
-        :key="item.id"
-        :style="`transition:all ${item.id / 10}s`"
-      >
-        {{ item.text }}
-      </p>
-    </StairAnimation>
-    <p @click="choosePhoto">点击选照片</p>
+    <button @click="() => editMenu(menuList)">确定</button>
   </div>
 </template>
 
 <script>
 import Draggable from 'vuedraggable';
-import StairAnimation from '@/components/StairAnimation';
-
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+import Header from '@/components/Header';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'All',
   components: {
     Draggable,
-    StairAnimation
+    Header
+  },
+  mounted() {
+    this.menuList = this.customMenu;
   },
   data() {
     return {
-      test: arr.map(item => {
-        return { text: `${item}号`, id: item };
-      }),
-      otherTest: arr.map(item => {
-        return { text: `${item}号`, id: item };
-      }),
+      menuList: [],
       dragOptions: {
         ghostClass: 'ghost',
         chosenClass: 'chosen',
@@ -48,9 +37,10 @@ export default {
     };
   },
   methods: {
-    checkMove(event) {
-      console.log(event.draggedContext.element.id);
-    },
+    ...mapMutations(['editMenu']),
+    // checkMove(event) {
+    //   console.log(event.draggedContext.element.id);
+    // },
     choosePhoto() {
       const options = { type: 0 };
       this.$AP.getLocation(options, res => {
@@ -58,12 +48,16 @@ export default {
       });
     }
   },
-  computed: {}
+  computed: {
+    ...mapState(['customMenu'])
+  }
 };
 </script>
 
 <style lang="less" scoped>
 .all {
+  padding-top: 120px;
+
   .custom-item {
     display: inline-block;
     border: 1px solid black;

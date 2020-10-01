@@ -64,7 +64,7 @@ export default {
   }
 }
 .go {
-  transform: translateY(-52px);
+  transform: translateY(-50px);
   transition: all 0.4s;
 }
 </style>

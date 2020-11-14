@@ -3,6 +3,7 @@
     <transition :name="transitionName" mode="out-in">
       <router-view />
     </transition>
+    <Loading v-if="$store.state.isLoading" />
   </div>
 </template>
 

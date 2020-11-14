@@ -8,11 +8,13 @@ import api from './utils/api';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import './icons';
+import Loading from './components/Loading.vue';
 
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 Vue.prototype.$api = api;
 Vue.prototype.$AP = window.ap;
+Vue.component('Loading', Loading);
 
 new Vue({
   router,

@@ -1,10 +1,7 @@
 <template>
-  <div
-    class="fund add-padding-bottom"
-    :class="!lineData.length && '.before-finished'"
-  >
+  <div class="fund add-padding-bottom">
     <Header :needBack="true" title="基金详情" />
-    <div class="fund-title">
+    <div class="fund-title" v-show="lineData.length">
       <p>{{ this.goldData.name }}</p>
       <div class="type-wrapper">
         <span class="fund-code nums">{{ this.goldData.code }}</span>
@@ -12,7 +9,7 @@
         <span class="low-risk">低风险型</span>
       </div>
     </div>
-    <div class="data-bar">
+    <div class="data-bar" v-if="lineData.length">
       <div>
         <p
           :class="this.goldData.dayGrowth > 0 ? 'red-num' : 'green-num'"
@@ -27,15 +24,20 @@
           :class="this.goldData.lastYearGrowth > 0 ? 'red-num' : 'green-num'"
           class="data-value"
         >
-          {{ this.goldData.lastYearGrowth }}%
+          <!-- {{ this.goldData.lastYearGrowth }}% -->
+          <CountNum
+            :endNum="Number(this.goldData.lastYearGrowth)"
+            :isPercentage="true"
+            :step="2"
+            :decimalPlace="2"
+            class="data-value"
+          />
         </p>
         <p class="data-key">近一年收益率</p>
       </div>
       <div class="latest-netWorth">
         <p class="data-value">{{ this.goldData.netWorth }}</p>
-        <p class="data-key">
-          最新净值
-        </p>
+        <p class="data-key">最新净值</p>
       </div>
     </div>
     <!-- <p class="content-title">净值走势图</p> -->
@@ -71,7 +73,7 @@
         基金规模{{ this.goldData.fundScale }}
       </p>
     </div>
-    <div class="fund-footer">
+    <div class="fund-footer" v-if="lineData.length">
       <div class="subscribe flex-item" @click="hasStarred = !hasStarred">
         <transition name="boom">
           <svg-icon
@@ -95,12 +97,14 @@
 <script>
 import LineChart from '@/components/LineChart';
 import Header from '@/components/Header';
+import CountNum from '../components/CountNum.vue';
 
 export default {
   name: 'Gold',
   components: {
     LineChart,
-    Header
+    Header,
+    CountNum
   },
 
   mounted() {
@@ -167,7 +171,7 @@ export default {
       const res = await this.$api.getFundDetail(code);
       this.goldData = Object.assign({}, this.goldData, res.data.data);
       this.lineData = this.goldData.netWorthData.slice(-24);
-      this.$AP.hideLoading();
+      this.$store.commit('hideLoading');
     },
     changeTimeIndex(itemIndex, index) {
       this.timeIndex = itemIndex;

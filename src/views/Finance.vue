@@ -7,7 +7,7 @@
         v-for="item in menuArr"
         :key="item.id"
         class="flex-item"
-        @click="showAlertToast"
+        @click="clickHandler(item)"
       >
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
@@ -24,7 +24,7 @@
       class="fund-recommend regular-margin"
       @click="() => jumpToGold(item.code)"
     >
-      <div class="year-growth ">
+      <div class="year-growth">
         <p class="red-percent">{{ item.rate }}</p>
         <p class="sevenday">{{ item.description }}</p>
       </div>
@@ -69,7 +69,7 @@ export default {
       ],
       menuArr: [
         { name: '基金', url: '', icon: 'fund', id: 0 },
-        { name: '黄金', url: 'gold/000216', icon: 'gold', id: 1 },
+        { name: '黄金', url: '000216', icon: 'gold', id: 1 },
         { name: '保险', url: '', icon: 'insurance', id: 2 },
         { name: '存款', url: '', icon: 'save', id: 3 },
         { name: '证券', url: '', icon: 'security', id: 4 },
@@ -106,8 +106,16 @@ export default {
   },
   methods: {
     jumpToGold(code) {
-      this.$AP.showLoading();
+      this.$store.commit('showLoading');
       this.$router.push(`gold/${code}`);
+    },
+    clickHandler(item) {
+      let code = item.url;
+      if (code) {
+        this.jumpToGold(code);
+      } else {
+        this.showAlertToast();
+      }
     },
     showAlertToast() {
       this.$AP.showToast({

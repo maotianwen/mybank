@@ -39,6 +39,7 @@ const arr = [
 export default new Vuex.Store({
   state: {
     showWelcomePage: true,
+    isLoading: false,
     isLogined: false,
     menuIndex: 4, //4代表在引导页
     customMenu: [
@@ -57,6 +58,12 @@ export default new Vuex.Store({
   mutations: {
     haveWelcomed(state) {
       state.showWelcomePage = false;
+    },
+    showLoading(state) {
+      state.isLoading = true;
+    },
+    hideLoading(state) {
+      state.isLoading = false;
     },
     login(state) {
       state.isLogined = true;

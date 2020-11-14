@@ -45,11 +45,11 @@ export default {
           extraCssText: 'box-shadow: 0px 0px 4px 1px #86a2ef;',
           padding: [4, 8],
           show: true,
-          position: [0, -20],
+          position: [0, 0],
           formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
-            return `<div style="text-align:left;letter-spacing:1px;">日期:<span style="color:#9b9b9b;font-weight:bold" class="nums">${time}</span><br/>单位净值:<span style="color:#0066b3;font-weight:bold" class="nums">${data}</span><div/>`;
+            return `<div style="text-align:left;letter-spacing:1px;">日期:<span style="color:#9b9b9b;font-weight:bold" class="nums">${time}</span>&nbsp;&nbsp;&nbsp;单位净值:<span style="color:#0066b3;font-weight:bold" class="nums">${data}</span><div/>`;
           }
         },
         xAxis: [
@@ -79,6 +79,7 @@ export default {
             splitLine: { show: false },
             axisLabel: {
               interval: 0,
+              showMinLabel: false,
               formatter(value) {
                 return value.toFixed(3);
               }
@@ -147,7 +148,7 @@ export default {
 <style lang="less" scoped>
 .chartWrapper {
   width: 100%;
-  transform: scale(0.8) translateX(-68px);
+  transform: scale(0.93);
   span {
     font-size: 24px;
   }
@@ -157,13 +158,5 @@ export default {
     justify-content: space-between;
     padding: 0 24px;
   }
-  // .min-time {
-  //   // text-align: left;
-  //   // margin: 0 auto 0 24px;
-  // }
-  // .max-time {
-  //   // text-align: right;
-  //   // margin-left: auto;
-  // }
 }
 </style>

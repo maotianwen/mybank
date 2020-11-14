@@ -34,7 +34,7 @@ export default {
       this.recommendArr = res.data.data.rank.slice(0, 3);
     },
     jumpToDetail(code) {
-      this.$AP.showLoading();
+      this.$store.commit('showLoading');
       this.$router.push(`gold/${code}`);
     }
   },

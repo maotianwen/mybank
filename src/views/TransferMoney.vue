@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     openAddressList() {
-      this.$AP.choosePhoneContact((res) => {
+      this.$AP.choosePhoneContact(res => {
         this.list.push({ name: res.name, tel: res.mobile });
       });
     }

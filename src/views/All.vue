@@ -1,7 +1,6 @@
 <template>
   <div class="all add-padding-bottom">
     <Header title="全部功能" :needBack="true" />
-    <CountNum :startNum="23.2" :endNum="444.4" :step="5" :isPercentage="true" />
     <Draggable v-model="menuList" v-bind="dragOptions" class="drag-wrapper">
       <transition-group>
         <div v-for="element in menuList" :key="element.id" class="custom-item">
@@ -16,16 +15,14 @@
 <script>
 import Draggable from 'vuedraggable';
 import { mapState, mapMutations } from 'vuex';
-import CountNum from '@/components/CountNum';
 
 export default {
   name: 'All',
   components: {
-    Draggable,
-    CountNum
+    Draggable
   },
   mounted() {
-    this.$store.commit('hideLoading');
+    this.hideLoading();
     this.menuList = this.customMenu;
   },
   data() {
@@ -39,13 +36,13 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['editMenu']),
+    ...mapMutations(['editMenu', 'hideLoading']),
     // checkMove(event) {
     //   console.log(event.draggedContext.element.id);
     // },
     choosePhoto() {
       const options = { type: 0 };
-      this.$AP.getLocation(options, (res) => {
+      this.$AP.getLocation(options, res => {
         this.$AP.alert(`${res.city}`);
       });
     }

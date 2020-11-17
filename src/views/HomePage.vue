@@ -57,7 +57,7 @@ import {
   Swiper as SwiperClass,
   Pagination,
   Mousewheel,
-  Autoplay,
+  Autoplay
 } from 'swiper/swiper.esm';
 import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter';
 SwiperClass.use([Pagination, Mousewheel, Autoplay]);
@@ -70,7 +70,7 @@ export default {
     SearchInput,
     Recommend,
     SwiperSlide,
-    Swiper,
+    Swiper
   },
 
   data() {
@@ -78,12 +78,12 @@ export default {
       swiperOptions: {
         autoplay: {
           delay: 2400,
-          disableOnInteraction: false,
+          disableOnInteraction: false
         },
         pagination: {
-          el: '.swiper-pagination',
+          el: '.swiper-pagination'
         },
-        loop: true,
+        loop: true
         // Some Swiper option/callback...
       },
       menuArr: [
@@ -91,27 +91,27 @@ export default {
           name: '扫一扫',
           id: 1,
           icon: 'scan',
-          event: this.scan,
+          event: this.scan
         },
         {
           name: '收付款',
           id: 2,
           icon: 'rmb',
-          event: this.showAlertToast,
+          event: this.showAlertToast
         },
         {
           name: '转账',
           id: 3,
           icon: 'transaction',
-          event: this.showAlertToast,
+          event: this.showAlertToast
         },
         {
           name: '我的账户',
           id: 4,
           icon: 'my-account',
-          event: this.jumpToMyAccount,
-        },
-      ],
+          event: this.jumpToMyAccount
+        }
+      ]
     };
   },
   methods: {
@@ -125,7 +125,7 @@ export default {
     showAlertToast() {
       this.$AP.showToast({
         content: '暂不支持此功能',
-        duration: 1000,
+        duration: 1000
       });
     },
     jumpUrl(url) {
@@ -138,14 +138,14 @@ export default {
     },
     jumpToMyAccount() {
       this.changeIndex(3);
-    },
+    }
   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     },
-    ...mapState(['customMenu', 'isLogined']),
-  },
+    ...mapState(['customMenu', 'isLogined'])
+  }
 };
 </script>
 

@@ -1,9 +1,9 @@
 <template>
   <div class="nearby-bank">
     <Header :needBack="true" title="附近银行" />
-    <amap :zoom="11" :center="[117.000923, 36.675807]">
-      <amap-marker :position="[117.000923, 36.675807]" />
-    </amap>
+    <!-- <amap :zoom="11" :center="[117.000923, 36.675807]"> -->
+    <!-- <amap-marker :position="[117.000923, 36.675807]" /> -->
+    <!-- </amap> -->
   </div>
 </template>
 

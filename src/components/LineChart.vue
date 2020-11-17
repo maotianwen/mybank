@@ -21,8 +21,8 @@ export default {
   mounted() {},
   watch: {
     lineData() {
-      this.lineOptions.xAxis[0].data = this.lineData.map((item) => item[0]);
-      this.lineOptions.series[0].data = this.lineData.map((item) => item[1]);
+      this.lineOptions.xAxis[0].data = this.lineData.map(item => item[0]);
+      this.lineOptions.series[0].data = this.lineData.map(item => item[1]);
       const len = this.lineData.length;
       this.minTime = this.lineOptions.xAxis[0].data[0].replaceAll('-', '/');
       this.maxTime = this.lineOptions.xAxis[0].data[len - 1].replaceAll(
@@ -46,7 +46,7 @@ export default {
           padding: [4, 8],
           show: true,
           position: [0, 0],
-          formatter: (params) => {
+          formatter: params => {
             let data = params[0].value;
             let time = params[0].axisValue;
             return `<div style="text-align:left;letter-spacing:1px;">日期:<span style="color:#9b9b9b;font-weight:bold" class="nums">${time}</span>&nbsp;&nbsp;&nbsp;单位净值:<span style="color:#0066b3;font-weight:bold" class="nums">${data}</span><div/>`;
@@ -74,8 +74,8 @@ export default {
         ],
         yAxis: [
           {
-            min: (value) => value.min - 0.044,
-            max: (value) => value.max + 0.035,
+            min: value => value.min - 0.044,
+            max: value => value.max + 0.035,
             splitLine: { show: false },
             axisLabel: {
               interval: 0,

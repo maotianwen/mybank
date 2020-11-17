@@ -30,11 +30,11 @@ export default {
     GuidePage,
     Mine,
     Life,
-    Finance,
+    Finance
   },
   data() {
     return {
-      testAnimation: false,
+      testAnimation: false
     };
   },
   mounted() {
@@ -42,19 +42,19 @@ export default {
     this.$AP.hideBackButton();
   },
   computed: {
-    ...mapState(['menuIndex', 'showWelcomePage']),
+    ...mapState(['menuIndex', 'showWelcomePage'])
   },
   methods: {
     getFundDetail() {
-      this.$api.getFundDetail('000001').then((v) => console.log(v));
+      this.$api.getFundDetail('000001').then(v => console.log(v));
     },
     getFund() {
-      this.$api.getFund('202015', '007339').then((v) => console.log(v));
+      this.$api.getFund('202015', '007339').then(v => console.log(v));
     },
     scan() {
       this.$AP.scan();
-    },
-  },
+    }
+  }
 };
 </script>
 

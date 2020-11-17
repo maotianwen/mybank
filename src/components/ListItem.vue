@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
     <svg-icon :iconClass="itemObj.icon" :className="'icon'" />
-    <div>
+    <div class="text-wrapper">
       <p class="main-title">{{ itemObj.name }}</p>
       <p class="sub-title">{{ itemObj.subName }}</p>
     </div>
@@ -29,16 +29,15 @@ export default {
   display: flex;
   align-items: center;
   height: 124px;
-  padding-left: 88px;
+  padding-left: 36px;
   margin-bottom: 4px;
   .icon {
     height: 48px;
-    left: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
   }
 
+  .text-wrapper {
+    margin-left: 24px;
+  }
   .main-title {
     font-size: 26px;
     color: #000000;
@@ -53,7 +52,7 @@ export default {
     position: absolute;
     width: 100%;
     bottom: 0;
-    left: 88px;
+    // left: 88px;
     height: 1px;
     opacity: 0.2;
     background-color: #9b9b9b;

@@ -73,10 +73,10 @@ export default {
           return;
         }
         for (let word of this.inputValue) {
-          if (this.searchList.some((item) => item.keywords.has(word))) {
+          if (this.searchList.some(item => item.keywords.has(word))) {
             this.notFound = false;
             canNotFound = false;
-            this.searchArr = this.searchList.filter((item) =>
+            this.searchArr = this.searchList.filter(item =>
               item.keywords.has(word)
             );
           }

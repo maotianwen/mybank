@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
 import ListItem from '@/components/ListItem.vue';
 // import StairAnimation from '@/components/StairAnimation';
 
@@ -42,7 +41,6 @@ export default {
     };
   },
   components: {
-    Header,
     ListItem
     // StairAnimation
   },

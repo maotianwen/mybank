@@ -1,5 +1,9 @@
 <template>
-  <transition-group :appear="true" :name="animationName">
+  <transition-group
+    :appear="true"
+    :name="animationName"
+    :class="flexContainer && 'flex-wrapper'"
+  >
     <slot></slot>
   </transition-group>
 </template>
@@ -16,6 +20,10 @@ export default {
     animationName: {
       type: String,
       default: 'down-up'
+    },
+    flexContainer: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -40,4 +48,10 @@ export default {
   opacity: 0;
   transform: translateY(-100%);
 }
+
+// .flex-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+// }
 </style>

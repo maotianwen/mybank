@@ -49,7 +49,6 @@
 <script>
 import ContentTitle from '@/components/ContentTitle';
 import ArticleItem from '@/components/ArticleItem';
-import Header from '@/components/Header';
 import Earning from '@/components/Earning';
 
 export default {
@@ -57,7 +56,6 @@ export default {
   components: {
     ContentTitle,
     ArticleItem,
-    Header,
     Earning
   },
   data() {

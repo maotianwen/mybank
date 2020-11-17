@@ -15,7 +15,6 @@
 
 <script>
 import Draggable from 'vuedraggable';
-import Header from '@/components/Header';
 import { mapState, mapMutations } from 'vuex';
 import CountNum from '@/components/CountNum';
 
@@ -23,7 +22,6 @@ export default {
   name: 'All',
   components: {
     Draggable,
-    Header,
     CountNum
   },
   mounted() {

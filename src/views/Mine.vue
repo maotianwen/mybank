@@ -1,9 +1,8 @@
 <template>
   <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
-    <Earning infoType="account" />
 
-    <Earning infoType="finance" />
+    <CheckEarning />
     <ListItem
       v-for="item in MyList"
       :itemObj="item"
@@ -15,17 +14,15 @@
 </template>
 
 <script>
-import Header from '@/components/Header';
 import ListItem from '@/components/ListItem';
-import Earning from '@/components/Earning';
+import CheckEarning from '@/components/CheckEarning';
 import { mapState } from 'vuex';
 
 export default {
   name: 'Mine',
   components: {
-    Header,
     ListItem,
-    Earning
+    CheckEarning
   },
   data() {
     return {
@@ -79,7 +76,7 @@ export default {
       this.$router.push('about');
     },
     jumpToSuggestion() {
-      this.$AP.showLoading();
+      this.$store.commit('showLoading');
       this.$router.push('suggestion');
     }
   }

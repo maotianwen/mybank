@@ -8,31 +8,31 @@ const arr = [
     text: '理财推荐',
     url: 'gold/000216',
     id: 1,
-    keywords: ['理', '财', '理财']
+    keywords: new Set(['理', '财', '推', '荐'])
   },
   {
     text: '基金推荐',
     url: 'gold/160632',
     id: 2,
-    keywords: ['基', '金', '基金']
+    keywords: new Set(['基', '金', '推', '荐'])
   },
   {
     text: '黄金详情',
     url: 'gold/000216',
     id: 3,
-    keywords: ['黄', '金', '黄金']
+    keywords: new Set(['黄', '金', '详', '情'])
   },
   {
     text: '登录/注册',
     url: 'login',
     id: 4,
-    keywords: ['注', '册', '注册', '登', '录', '登录']
+    keywords: new Set(['注', '册', '登', '录'])
   },
   {
     text: '查看我的消息',
     url: 'message',
     id: 5,
-    keywords: ['我', '的', '消', '息', '我的', '消息', '我的消息']
+    keywords: new Set(['我', '的', '消', '息'])
   }
 ];
 
@@ -43,7 +43,7 @@ export default new Vuex.Store({
     isLogined: false,
     menuIndex: 4, //4代表在引导页
     customMenu: [
-      { name: '网点服务', url: '', icon: 'bank-service', id: 0 },
+      { name: '网点服务', url: 'nearbybank', icon: 'bank-service', id: 0 },
       { name: '黄金', url: 'gold/000216', icon: 'gold', id: 1 },
       { name: '贷款', url: '', icon: 'loan', id: 2 },
       { name: '基金', url: '', icon: 'fund', id: 3 },

@@ -28,7 +28,7 @@
           <CountNum
             :endNum="Number(this.goldData.lastYearGrowth)"
             :isPercentage="true"
-            :step="2"
+            :step="2.21"
             :decimalPlace="2"
             class="data-value"
           />
@@ -96,14 +96,12 @@
 
 <script>
 import LineChart from '@/components/LineChart';
-import Header from '@/components/Header';
 import CountNum from '../components/CountNum.vue';
 
 export default {
   name: 'Gold',
   components: {
     LineChart,
-    Header,
     CountNum
   },
 
@@ -168,6 +166,7 @@ export default {
   },
   methods: {
     async getFundDetail(code) {
+      this.$store.commit('showLoading');
       const res = await this.$api.getFundDetail(code);
       this.goldData = Object.assign({}, this.goldData, res.data.data);
       this.lineData = this.goldData.netWorthData.slice(-24);
@@ -227,16 +226,19 @@ export default {
         border-color: @my-blue;
         color: @my-blue;
         font-size: 24px;
+        background-color: #e6f7ff;
       }
       &.mix-type {
         color: @my-red;
         border-color: @my-red;
         margin-left: 18px;
+        background-color: #fff1f0;
       }
       &.low-risk {
         color: @my-green;
         border-color: @my-green;
         margin-left: 18px;
+        background-color: #f6ffed;
       }
     }
   }

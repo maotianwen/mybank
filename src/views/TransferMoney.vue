@@ -12,13 +12,9 @@
 </template>
 
 <script>
-import Header from '@/components/Header';
-
 export default {
   name: 'TransferMoney',
-  components: {
-    Header
-  },
+  components: {},
   data() {
     return {
       list: [{ name: '毛天问', tel: 13908493441 }]
@@ -26,7 +22,7 @@ export default {
   },
   methods: {
     openAddressList() {
-      this.$AP.choosePhoneContact(res => {
+      this.$AP.choosePhoneContact((res) => {
         this.list.push({ name: res.name, tel: res.mobile });
       });
     }

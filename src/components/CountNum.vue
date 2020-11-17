@@ -43,7 +43,6 @@ export default {
   methods: {
     triggerRfa() {
       if (this.num >= this.maxNum) {
-        console.log(this.rfa);
         this.num = this.maxNum;
         this.finalNum = this.isPercentage
           ? this.num.toFixed(this.decimalPlace) + '%'

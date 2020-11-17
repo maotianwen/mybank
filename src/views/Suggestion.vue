@@ -11,15 +11,11 @@
 </template>
 
 <script>
-import Header from '@/components/Header';
-
 export default {
   name: 'Suggestion',
-  components: {
-    Header
-  },
+  components: {},
   mounted() {
-    this.$AP.hideLoading();
+    this.$store.commit('hideLoading');
   }
 };
 </script>

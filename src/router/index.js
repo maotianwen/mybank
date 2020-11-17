@@ -41,14 +41,28 @@ const routes = [
   {
     path: '/all',
     component: () => {
-      console.log('alasd');
       return import(/* webpackChunkName: "about" */ '../views/All.vue');
     }
   },
   {
     path: '/suggestion',
     component: () =>
-      import(/* webpackChunkName: "suggestion" */ '../views/Suggestion')
+      import(/* webpackChunkName: "suggestion" */ '../views/Suggestion.vue')
+  },
+  {
+    path: '/mybankcard',
+    component: () =>
+      import(/* webpackChunkName: "bankcard" */ '../views/MyBankCard.vue')
+  },
+  {
+    path: '/incomerecord',
+    component: () =>
+      import(/* webpackChunkName: "incomerecord" */ '../views/IncomeRecord.vue')
+  },
+  {
+    path: '/nearbybank',
+    component: () =>
+      import(/* webpackChunkName: "nearbybank" */ '../views/NearbyBank.vue')
   }
 ];
 

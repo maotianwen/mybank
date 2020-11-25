@@ -80,7 +80,7 @@ export default {
       margin-bottom: 14px;
     }
     &.sub-title {
-      font-size: 14px;
+      font-size: 26px;
       color: @my-purple;
     }
   }

@@ -81,9 +81,9 @@ button {
   right: 32px;
   font-size: 26px;
   padding: 8px 34px;
-  border-radius: 26px;
+  border-radius: 24px;
   letter-spacing: 4px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
 }
 img {

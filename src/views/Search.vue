@@ -3,6 +3,7 @@
     <div class="header">
       <input
         type="text"
+        placeholder="输入基金代码或疑问"
         v-model="inputValue"
         @input="search"
         @blur="search"
@@ -11,15 +12,20 @@
       <svg-icon
         iconClass="exit"
         :className="'exit'"
-        @click.native="inputValue = ''"
+        @click.native="
+          inputValue = '';
+          notFound = false;
+        "
       />
       <span @click="$router.go(-1)">取消</span>
     </div>
     <transition name="not-found">
       <div v-show="notFound" class="error-item">糟糕！没找到想要的内容啊！</div>
     </transition>
-    <p>热门搜索</p>
-    <StairAnimation animationName="stair">
+    <transition name="not-found">
+      <p v-show="!notFound" class="hot-search">热门搜索</p>
+    </transition>
+    <StairAnimation animationName="stair" v-if="!notFound">
       <div
         class="hint"
         v-for="(item, index) in searchArr"
@@ -27,7 +33,7 @@
         @click="$router.push(item.url)"
         :style="{
           transition: `all 0.6s`,
-          top: `${124 + index * 40 + (notFound ? 60 : 0)}px`
+          top: `${124 + index * 40}px`
         }"
       >
         {{ item.text }}
@@ -50,12 +56,12 @@ export default {
     return {
       inputValue: '',
       searchArr: [
-        { text: '忘记密码怎么办？', url: 'login', id: 1 },
-        { text: '如何购买基金？', url: 'gold/160632', id: 2 }
+        { text: '怎么登录？', url: 'login', id: 1 },
+        { text: '鹏华酒分级(160632)', url: 'gold/160632', id: 2 }
       ],
       defaultArr: [
-        { text: '忘记密码怎么办？', url: 'login', id: 1 },
-        { text: '如何购买基金？', url: 'gold/160632', id: 2 }
+        { text: '怎么登录？', url: 'login', id: 1 },
+        { text: '鹏华酒分级(160632)', url: 'gold/160632', id: 2 }
       ],
       notFound: false
     };
@@ -67,9 +73,17 @@ export default {
     search() {
       debounce(() => {
         let canNotFound = true;
+        const reg = /\d{6}/;
+        //输入框为空
         if (!this.inputValue.length) {
           this.notFound = false;
           this.searchArr = this.defaultArr;
+          return;
+        }
+        //输入的是基金代码
+        if (this.inputValue.match(reg)) {
+          const code = this.inputValue.match(reg)[0];
+          this.getFundTitle(code);
           return;
         }
         for (let word of this.inputValue) {
@@ -85,6 +99,23 @@ export default {
           this.notFound = true;
         }
       }, 500);
+    },
+    async getFundTitle(code) {
+      const res = await this.$api.getFund(code);
+      console.log(res.data.data);
+      if (res.data.data.length) {
+        this.notFound = false;
+        const obj = res.data.data[0];
+        this.searchArr = [
+          {
+            text: `${obj.name}(${obj.code})`,
+            url: `gold/${obj.code}`,
+            id: 10000
+          }
+        ];
+      } else {
+        this.notFound = true;
+      }
     }
   }
 };
@@ -119,9 +150,10 @@ export default {
   transform: scale(0.7);
   right: 168px;
 }
-p {
+.hot-search {
   text-align: left;
   letter-spacing: 3px;
+  transition: all 0.6s;
   font-size: 36px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
@@ -139,17 +171,16 @@ p {
 
 .error-item {
   transition: all 0.6s;
+  position: absolute;
   height: 100px;
   border: 1px solid black;
   font-size: 24px;
 }
 .not-found-enter {
   opacity: 0;
-  height: 0;
 }
 
 .not-found-leave-to {
   opacity: 0;
-  height: 0;
 }
 </style>

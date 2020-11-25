@@ -1,7 +1,7 @@
 <template>
   <div class="mine add-padding-bottom">
     <Header title="我的" :needBack="false" :needMessage="true" />
-
+    <AccountView />
     <CheckEarning />
     <ListItem
       v-for="item in MyList"
@@ -17,12 +17,14 @@
 import ListItem from '@/components/ListItem';
 import CheckEarning from '@/components/CheckEarning';
 import { mapState } from 'vuex';
+import AccountView from '../components/AccountView.vue';
 
 export default {
   name: 'Mine',
   components: {
     ListItem,
-    CheckEarning
+    CheckEarning,
+    AccountView
   },
   data() {
     return {

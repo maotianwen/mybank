@@ -103,7 +103,7 @@ export default {
           name: '转账',
           id: 3,
           icon: 'transaction',
-          event: this.showAlertToast
+          event: this.jumpToTransferMoney
         },
         {
           name: '我的账户',
@@ -119,7 +119,7 @@ export default {
     scan() {
       this.$AP.scan();
     },
-    transferMoney() {
+    jumpToTransferMoney() {
       this.$router.push('transfermoney');
     },
     showAlertToast() {

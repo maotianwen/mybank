@@ -20,7 +20,10 @@
       <span @click="$router.go(-1)">取消</span>
     </div>
     <transition name="not-found">
-      <div v-show="notFound" class="error-item">糟糕！没找到想要的内容啊！</div>
+      <div v-show="notFound" class="error-item">
+        <img src="../assets/mascot.png" alt="" />
+        <p>糟糕！没找到想要的内容啊！</p>
+      </div>
     </transition>
     <transition name="not-found">
       <p v-show="!notFound" class="hot-search">热门搜索</p>
@@ -68,6 +71,9 @@ export default {
   },
   computed: {
     ...mapState(['searchList'])
+  },
+  mounted() {
+    this.$store.commit('hideLoading');
   },
   methods: {
     search() {
@@ -161,7 +167,7 @@ export default {
 }
 
 .hint {
-  font-size: 24px;
+  font-size: 26px;
   border: 1px solid #0066b3;
   position: absolute;
   padding: 5px 36px 5px 36px;
@@ -172,9 +178,18 @@ export default {
 .error-item {
   transition: all 0.6s;
   position: absolute;
-  height: 100px;
-  border: 1px solid black;
-  font-size: 24px;
+  width: 100%;
+  height: 400px;
+  top: 184px;
+  img {
+    height: 300px;
+  }
+  p {
+    position: absolute;
+    top: 60%;
+    right: 194px;
+    font-size: 26px;
+  }
 }
 .not-found-enter {
   opacity: 0;

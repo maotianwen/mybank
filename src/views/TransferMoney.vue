@@ -1,12 +1,17 @@
 <template>
   <div class="transfer-money">
     <Header title="转账" :needBack="true" />
-    <div class="wrapper regular-margin">
+    <div class="wrapper regular-margin" :class="unfold && 'grow'">
       <div v-for="item in menu" :key="item.id" class="flex-item">
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
       </div>
-      <svg-icon :iconClass="'grey-arrow'" :class="'arrow-class'" />
+      <svg-icon
+        :iconClass="'grey-arrow'"
+        class="arrow-class"
+        :class="unfold && 'unfold'"
+        @click.native="toggleWrapper"
+      />
     </div>
     <!-- <span @click="openAddressList">收款人名册</span>
     <ul>
@@ -25,13 +30,14 @@ export default {
   data() {
     return {
       list: [{ name: '毛天问', tel: 13908493441 }],
+      unfold: false,
       menu: [
         { name: '普通转账', icon: 'normal-transfer', id: 0 },
         { name: '转账记录', icon: 'transfer-record', id: 1 },
         { name: '他行卡转入', icon: 'other-transfer', id: 2 },
         { name: '多人转账', icon: 'group', id: 3 },
-        { name: '普通转账', icon: 'normal-transfer', id: 4 },
-        { name: '普通转账', icon: 'normal-transfer', id: 5 }
+        { name: '转账设置', icon: 'transfer-settings', id: 4 },
+        { name: '预约转账', icon: 'order', id: 5 }
       ]
     };
   },
@@ -40,6 +46,9 @@ export default {
       this.$AP.choosePhoneContact(res => {
         this.list.push({ name: res.name, tel: res.mobile });
       });
+    },
+    toggleWrapper() {
+      this.unfold = !this.unfold;
     }
   }
 };
@@ -54,11 +63,15 @@ export default {
     position: relative;
     overflow: hidden;
     margin-top: 36px;
-    height: 182px;
+    transition: height 0.4s;
+    height: 184px;
     font-size: 26px;
     text-align: left;
     white-space: pre-wrap;
     padding-top: 35px;
+    &.grow {
+      height: 348px;
+    }
     .flex-item {
       display: inline-block;
       text-align: center;
@@ -72,7 +85,13 @@ export default {
     }
     .arrow-class {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      transition: transform 0.4s;
       bottom: 4px;
+      &.unfold {
+        transform: translateX(-50%) scale(0.8) rotateZ(180deg);
+      }
     }
   }
 }

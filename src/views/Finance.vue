@@ -22,7 +22,7 @@
       v-for="item in fundArr"
       :key="item.id"
       class="fund-recommend regular-margin"
-      @click="() => jumpToGold(item.code)"
+      @click="() => jumpTo(item.code)"
     >
       <div class="year-growth">
         <p class="red-percent">{{ item.rate }}</p>
@@ -66,8 +66,8 @@ export default {
         { title: '证券市场评论:尊重市场，合理调控', index: 3, hotNums: 2350 }
       ],
       menuArr: [
-        { name: '基金', url: '', icon: 'fund', id: 0 },
-        { name: '黄金', url: '000216', icon: 'gold', id: 1 },
+        { name: '基金', url: 'search', icon: 'fund', id: 0 },
+        { name: '黄金', url: 'gold/000216', icon: 'gold', id: 1 },
         { name: '保险', url: '', icon: 'insurance', id: 2 },
         { name: '存款', url: '', icon: 'save', id: 3 },
         { name: '证券', url: '', icon: 'security', id: 4 },
@@ -81,7 +81,7 @@ export default {
           rate: '2.92%',
           description: '7日年化',
           id: 1,
-          code: '001702'
+          code: 'gold/001702'
         },
         {
           title: '鹏华品牌传承混合',
@@ -89,7 +89,7 @@ export default {
           rate: '2.04%',
           description: '7日年化',
           id: 2,
-          code: '000431'
+          code: 'gold/000431'
         },
         {
           title: '中银智能制造股票',
@@ -97,20 +97,20 @@ export default {
           rate: '2.45%',
           description: '7日年化',
           id: 3,
-          code: '001476'
+          code: 'gold/001476'
         }
       ]
     };
   },
   methods: {
-    jumpToGold(code) {
+    jumpTo(code) {
       this.$store.commit('showLoading');
-      this.$router.push(`gold/${code}`);
+      this.$router.push(`${code}`);
     },
     clickHandler(item) {
       let code = item.url;
       if (code) {
-        this.jumpToGold(code);
+        this.jumpTo(code);
       } else {
         this.showAlertToast();
       }

@@ -2,7 +2,12 @@
   <div class="transfer-money">
     <Header title="转账" :needBack="true" />
     <div class="wrapper regular-margin" :class="unfold && 'grow'">
-      <div v-for="item in menu" :key="item.id" class="flex-item">
+      <div
+        v-for="item in menu"
+        :key="item.id"
+        class="flex-item"
+        @click="() => changeTranferIndex(item.id)"
+      >
         <svg-icon :iconClass="item.icon" :className="'flex-icon'" />
         <p>{{ item.name }}</p>
       </div>
@@ -20,17 +25,26 @@
         {{ item.tel }}
       </li>
     </ul> -->
+    <RecentTransfer v-show="curIndex === 1" />
+    <NormalTransfer v-show="curIndex === 0" />
   </div>
 </template>
 
 <script>
+import RecentTransfer from '@/components/RecentTransfer';
+import NormalTransfer from '@/components/NormalTransfer';
+
 export default {
   name: 'TransferMoney',
-  components: {},
+  components: {
+    RecentTransfer,
+    NormalTransfer
+  },
   data() {
     return {
       list: [{ name: '毛天问', tel: 13908493441 }],
       unfold: false,
+      curIndex: 1,
       menu: [
         { name: '普通转账', icon: 'normal-transfer', id: 0 },
         { name: '转账记录', icon: 'transfer-record', id: 1 },
@@ -49,6 +63,13 @@ export default {
     },
     toggleWrapper() {
       this.unfold = !this.unfold;
+    },
+    changeTranferIndex(id) {
+      if (id === 0 || id === 1 || id === 3) {
+        this.curIndex = id;
+      } else {
+        this.$showAlertToast();
+      }
     }
   }
 };
@@ -63,6 +84,7 @@ export default {
     position: relative;
     overflow: hidden;
     margin-top: 36px;
+    margin-bottom: 30px;
     transition: height 0.4s;
     height: 184px;
     font-size: 26px;

@@ -73,6 +73,10 @@
         基金规模{{ this.goldData.fundScale }}
       </p>
     </div>
+    <div class="transaction-rule" v-show="lineData.length">
+      <p class="fund-document">交易规则</p>
+      <BuySteps />
+    </div>
     <div class="fund-footer" v-if="lineData.length">
       <div class="subscribe flex-item" @click="hasStarred = !hasStarred">
         <transition name="boom">
@@ -89,7 +93,8 @@
         <svg-icon iconClass="consult" />
         咨询
       </div>
-      <div class="buy flex-item">购买</div>
+      <div class="invest flex-item btn">定投</div>
+      <div class="buy flex-item btn">购买</div>
     </div>
   </div>
 </template>
@@ -97,12 +102,14 @@
 <script>
 import LineChart from '@/components/LineChart';
 import CountNum from '../components/CountNum.vue';
+import BuySteps from '@/components/BuySteps.vue';
 
 export default {
   name: 'Gold',
   components: {
     LineChart,
-    CountNum
+    CountNum,
+    BuySteps
   },
 
   mounted() {
@@ -302,17 +309,17 @@ export default {
   }
 }
 .fund-detail {
+  margin-bottom: 52px;
+  padding-left: 22px;
   .fund-document {
     font-size: 34px;
     margin-bottom: 28px;
   }
   p {
     font-size: 28px;
-    margin-left: 22px;
     margin-bottom: 30px;
     text-align: left;
     display: flex;
-    // align-items: center;
   }
 
   svg {
@@ -320,16 +327,25 @@ export default {
     margin-right: 24px;
   }
 }
+.transaction-rule {
+  text-align: left;
+  padding: 0 22px;
+  .fund-document {
+    font-size: 34px;
+    margin-bottom: 28px;
+  }
+}
 .fund-footer {
   display: flex;
   z-index: 2;
   position: fixed;
   background-color: #ffffff;
+  align-items: center;
   bottom: 0;
   width: 100%;
   height: 100px;
   font-size: 22px;
-  border-top: 1px solid @my-blue;
+  border-top: 1px solid @my-grey;
   .flex-item {
     display: flex;
     flex-direction: column;
@@ -350,14 +366,22 @@ export default {
     flex: 20%;
     height: 100%;
   }
+  .btn {
+    flex: 40%;
+    height: 80%;
+    border-radius: 10px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    font-size: 36px;
+    margin-right: 14px;
+    border: 1px solid @my-blue;
+  }
+  .invest {
+    color: @my-blue;
+  }
   .buy {
-    flex: 60%;
-    height: 100%;
     background-color: @my-blue;
     color: #ffffff;
-    letter-spacing: 4px;
-    font-weight: 600;
-    font-size: 36px;
   }
 }
 

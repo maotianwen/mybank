@@ -20,13 +20,11 @@
 
 <script>
 import StairAnimation from '@/components/StairAnimation';
-import ContentTitle from '@/components/ContentTitle';
 
 export default {
   name: 'Recommend',
   components: {
-    StairAnimation,
-    ContentTitle
+    StairAnimation
   },
   methods: {
     async mapHotFundtoData() {

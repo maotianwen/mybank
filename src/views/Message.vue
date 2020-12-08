@@ -5,7 +5,7 @@
       v-for="item in msgOptions"
       :key="item.id"
       :itemObj="item"
-      @click.native="showAlertToast"
+      @click.native="$showAlertToast"
     />
   </div>
 </template>
@@ -44,14 +44,7 @@ export default {
     ListItem
     // StairAnimation
   },
-  methods: {
-    showAlertToast() {
-      this.$AP.showToast({
-        content: '暂不支持此功能',
-        duration: 1000
-      });
-    }
-  }
+  methods: {}
 };
 </script>
 

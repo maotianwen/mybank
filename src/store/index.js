@@ -53,6 +53,16 @@ export default new Vuex.Store({
       { name: '跨境金融', url: '', icon: 'aboard-finance', id: 7 },
       { name: '热门活动', url: '', icon: 'popular-activity', id: 8 }
     ],
+    remainCustomMenu: [
+      { name: '话费流量', url: '', icon: 'mobile-pay', id: 9 },
+      { name: '生活缴费', url: '', icon: 'life-pay', id: 10 },
+      { name: '影票', url: '', icon: 'movie', id: 11 },
+      { name: '财富组合', url: '', icon: 'wealth-combo', id: 12 },
+      { name: '交易查询', url: '', icon: 'check-transaction', id: 13 },
+      { name: '证券', url: '', icon: 'security', id: 14 },
+      { name: '存款', url: '', icon: 'save', id: 15 },
+      { name: '交通出行', url: '', icon: 'transportation', id: 16 }
+    ],
     searchList: arr
   },
   mutations: {

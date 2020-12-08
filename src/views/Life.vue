@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import ContentTitle from '@/components/ContentTitle';
 import SearchInput from '@/components/SearchInput';
 import ArticleItem from '@/components/ArticleItem';
 import { debounce } from '@/utils/func';
@@ -44,7 +43,6 @@ export default {
   name: 'Life',
   components: {
     SearchInput,
-    ContentTitle,
     ArticleItem
   },
   mounted() {
@@ -97,17 +95,14 @@ export default {
         }
       }, 300);
     },
-    showAlertToast() {
-      this.$AP.showToast({
-        content: '暂不支持此功能',
-        duration: 1000
-      });
-    },
     getLocation() {
       let requestOption = { type: 1 };
       this.$AP.getLocation(requestOption, res => {
         this.location = res.city.slice(0, 2);
       });
+    },
+    showAlertToast() {
+      this.$showAlertToast();
     }
   }
 };

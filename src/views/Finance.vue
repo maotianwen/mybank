@@ -47,14 +47,12 @@
 </template>
 
 <script>
-import ContentTitle from '@/components/ContentTitle';
 import ArticleItem from '@/components/ArticleItem';
 import Earning from '@/components/Earning';
 
 export default {
   name: 'Finance',
   components: {
-    ContentTitle,
     ArticleItem,
     Earning
   },
@@ -112,14 +110,8 @@ export default {
       if (code) {
         this.jumpTo(code);
       } else {
-        this.showAlertToast();
+        this.$showAlertToast();
       }
-    },
-    showAlertToast() {
-      this.$AP.showToast({
-        content: '暂不支持此功能',
-        duration: 1000
-      });
     }
   }
 };

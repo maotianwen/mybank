@@ -122,22 +122,19 @@ export default {
     jumpToTransferMoney() {
       this.$router.push('transfermoney');
     },
-    showAlertToast() {
-      this.$AP.showToast({
-        content: '暂不支持此功能',
-        duration: 1000
-      });
-    },
     jumpUrl(url) {
       if (url) {
         this.showLoading();
         this.$router.push(url);
       } else {
-        this.showAlertToast();
+        this.$showAlertToast();
       }
     },
     jumpToMyAccount() {
       this.changeIndex(3);
+    },
+    showAlertToast() {
+      this.$showAlertToast();
     }
   },
   computed: {

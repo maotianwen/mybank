@@ -63,13 +63,16 @@ export default {
   background-color: #ffd3d7;
   bottom: 56px;
   right: 54px;
-  animation: pinkRotate 0.4s linear forwards;
+  transform: translateY(-18px) rotateZ(45deg);
+  // animation: pinkRotate 0.4s linear forwards;
 }
 .orange {
   background-color: #fb560a;
   bottom: 56px;
   right: 60px;
-  animation: orangeRotate 0.4s linear forwards;
+  transform: translateY(-15px) rotateZ(25deg);
+
+  // animation: orangeRotate 0.4s linear forwards;
 }
 
 @keyframes orangeRotate {
@@ -81,6 +84,15 @@ export default {
 @keyframes pinkRotate {
   100% {
     transform: translateY(-18px) rotateZ(45deg);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

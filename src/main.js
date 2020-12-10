@@ -19,7 +19,6 @@ Vue.config.productionTip = false;
 Vue.prototype.$api = api;
 Vue.prototype.$AP = window.ap;
 Vue.prototype.$showAlertToast = function() {
-  console.log(this.$AP);
   this.$AP.showToast({
     content: '暂不支持此功能',
     duration: 1000

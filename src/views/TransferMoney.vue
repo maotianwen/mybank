@@ -18,31 +18,31 @@
         @click.native="toggleWrapper"
       />
     </div>
-    <!-- <span @click="openAddressList">收款人名册</span>
-    <ul>
-      <li v-for="item in list" :key="item.tel">
-        {{ item.name }}
-        {{ item.tel }}
-      </li>
-    </ul> -->
-    <RecentTransfer v-show="curIndex === 1" />
-    <NormalTransfer v-show="curIndex === 0" />
+    <transition name="component-fade" mode="out-in">
+      <keep-alive>
+        <component :is="view"></component>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <script>
 import RecentTransfer from '@/components/RecentTransfer';
 import NormalTransfer from '@/components/NormalTransfer';
+import GroupTransfer from '@/components/GroupTransfer';
 
 export default {
   name: 'TransferMoney',
   components: {
     RecentTransfer,
-    NormalTransfer
+    NormalTransfer,
+    GroupTransfer
   },
   data() {
     return {
       list: [{ name: '毛天问', tel: 13908493441 }],
+      view: 'RecentTransfer',
+      testStatus: true,
       unfold: false,
       curIndex: 1,
       menu: [
@@ -55,18 +55,22 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$store.commit('hideLoading');
+  },
   methods: {
-    openAddressList() {
-      this.$AP.choosePhoneContact(res => {
-        this.list.push({ name: res.name, tel: res.mobile });
-      });
-    },
     toggleWrapper() {
       this.unfold = !this.unfold;
     },
     changeTranferIndex(id) {
+      const map = {
+        0: 'NormalTransfer',
+        1: 'RecentTransfer',
+        3: 'GroupTransfer'
+      };
       if (id === 0 || id === 1 || id === 3) {
         this.curIndex = id;
+        this.view = map[id];
       } else {
         this.$showAlertToast();
       }
@@ -78,6 +82,7 @@ export default {
 <style lang="less" scoped>
 .transfer-money {
   padding-top: 87px;
+  padding-bottom: 106px;
   .wrapper {
     box-shadow: @shadow;
     border-radius: 24px;
@@ -85,7 +90,7 @@ export default {
     overflow: hidden;
     margin-top: 36px;
     margin-bottom: 30px;
-    transition: height 0.4s;
+    transition: height 0.3s;
     height: 184px;
     font-size: 26px;
     text-align: left;
@@ -116,5 +121,18 @@ export default {
       }
     }
   }
+}
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: all 0.4s ease;
+}
+.component-fade-enter {
+  opacity: 0;
+  transform: translateX(140px);
+}
+.component-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-140px;);
 }
 </style>

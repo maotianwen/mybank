@@ -52,7 +52,7 @@ export default {
         return;
       }
       this.$AP.showToast({
-        content: '走个流程！点一下登录即可 - -',
+        content: '走个流程！点一下登录即可',
         duration: 2500
       });
     }

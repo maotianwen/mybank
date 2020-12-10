@@ -120,6 +120,7 @@ export default {
       this.$AP.scan();
     },
     jumpToTransferMoney() {
+      this.showLoading();
       this.$router.push('transfermoney');
     },
     jumpUrl(url) {

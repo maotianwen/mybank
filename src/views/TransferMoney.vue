@@ -91,7 +91,7 @@ export default {
     margin-top: 36px;
     margin-bottom: 30px;
     transition: height 0.3s;
-    height: 184px;
+    height: 194px;
     font-size: 26px;
     text-align: left;
     white-space: pre-wrap;
@@ -104,7 +104,7 @@ export default {
       text-align: center;
       width: 25%;
       height: 90px;
-      margin-bottom: 65px;
+      margin-bottom: 75px;
       .flex-icon {
         transform: scale(1.2);
         margin-bottom: 10px;

@@ -10,7 +10,7 @@
         @change="search"
       />
       <svg-icon
-        iconClass="exit"
+        iconClass="delete"
         :className="'exit'"
         @click.native="
           inputValue = '';

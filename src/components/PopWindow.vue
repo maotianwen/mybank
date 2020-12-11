@@ -91,25 +91,25 @@ export default {
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   background-color: #fff;
-  height: 520px;
+  height: 620px;
   box-shadow: @shadow;
   padding-top: 100px;
   .exit {
     position: absolute;
     right: 40px;
     top: 40px;
+    transform: scale(0.8);
   }
   input {
     border: 1px solid black;
   }
   .list {
-    // padding-left: 53px;
-    height: 400px;
+    height: 500px;
     overflow-y: auto;
   }
   .bank-item {
     &.active {
-      background-color: #d9d9d9;
+      background-color: #e9e9e9;
     }
     svg {
       transform: scale(1.6);

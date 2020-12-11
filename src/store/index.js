@@ -63,7 +63,8 @@ export default new Vuex.Store({
       { name: '存款', url: '', icon: 'save', id: 15 },
       { name: '交通出行', url: '', icon: 'transportation', id: 16 }
     ],
-    searchList: arr
+    searchList: arr,
+    transferRecord: []
   },
   mutations: {
     haveWelcomed(state) {
@@ -86,6 +87,9 @@ export default new Vuex.Store({
     },
     editMenu(state, newMenu) {
       state.customMenu = newMenu;
+    },
+    addTransferRecord(state, newRecord) {
+      state.transferRecord.push(newRecord);
     }
   },
   actions: {},

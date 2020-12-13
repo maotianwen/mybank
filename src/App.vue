@@ -4,6 +4,8 @@
       <router-view />
     </transition>
     <Loading v-if="$store.state.isLoading" />
+    <ErrorAlert v-if="$store.state.errorAlert" />
+    <Success v-if="$store.state.successNotice" />
   </div>
 </template>
 

@@ -8,27 +8,6 @@
       <div class="filter">筛选</div>
     </div>
     <transition-group>
-      <!-- <div
-        v-for="item in list"
-        :key="item.id"
-        class="list-item"
-        @touchstart="touchStart"
-        @touchmove="touchMove"
-        @touchend="touchEnd"
-      >
-        <svg-icon :iconClass="item.icon" />
-        <div class="right-part">
-          <div class="info">
-            <p class="title">{{ item.title }}</p>
-            <p class="type">{{ item.type }}</p>
-            <p class="time">{{ item.time }}</p>
-          </div>
-          <span>-{{ item.cost.toFixed(2) }}</span>
-        </div>
-        <div class="delete">
-          <svg-icon :iconClass="'trash-bin'" />
-        </div>
-      </div> -->
       <Bill
         :dataObj="item"
         v-for="(item, index) in list"
@@ -119,7 +98,7 @@ export default {
 
 <style lang="less" scoped>
 .bill-list {
-  overflow: hidden;
+  padding-bottom: 116px;
 }
 .header {
   // height: 87px;
@@ -142,7 +121,7 @@ export default {
     margin-bottom: 10px;
   }
   .data {
-    font-size: 16px;
+    font-size: 20px;
     font-family: PingFangSC-Semibold, PingFang SC;
     font-weight: 600;
     color: #455a64;

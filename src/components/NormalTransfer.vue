@@ -72,7 +72,11 @@ export default {
     ...mapState(['transferRecord'])
   },
   methods: {
-    ...mapMutations(['addTransferRecord']),
+    ...mapMutations([
+      'addTransferRecord',
+      'showErrorAlert',
+      'showSuccessNotice'
+    ]),
     openAddressList() {
       this.$AP.choosePhoneContact(res => {
         this.name = res.name;
@@ -113,19 +117,19 @@ export default {
       const moneyNum = parseFloat(this.money.slice(2));
       const accountName = this.account;
       const userName = this.name;
-      if (!userName || !moneyNum || !this.curBankName) {
-        console.log('error');
-        this.$AP.alert({
-          title: '亲',
-          content: '您有新的快递消息',
-          buttonText: '我知道了'
-        });
+      if (!userName || !this.curBankName) {
+        this.showErrorAlert('请将信息填写完整');
+        return false;
+      }
+      if (!moneyNum) {
+        this.showErrorAlert('请输入正确的转账金额');
         return false;
       }
       if (!this.checkAccount(accountName)) {
-        console.log('error1');
+        this.showErrorAlert('请填写正确的收款账户');
         return false;
       }
+      this.showSuccessNotice('转账成功');
       this.addTransferRecord({
         name: userName,
         account: accountName,

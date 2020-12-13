@@ -40,6 +40,8 @@ export default new Vuex.Store({
   state: {
     showWelcomePage: true,
     isLoading: false,
+    errorAlert: false,
+    successNotice: false,
     isLogined: false,
     menuIndex: 4, //4代表在引导页
     customMenu: [
@@ -64,7 +66,9 @@ export default new Vuex.Store({
       { name: '交通出行', url: '', icon: 'transportation', id: 16 }
     ],
     searchList: arr,
-    transferRecord: []
+    transferRecord: [],
+    errorMessage: '我是错误',
+    successMessage: '成功提示'
   },
   mutations: {
     haveWelcomed(state) {
@@ -75,6 +79,20 @@ export default new Vuex.Store({
     },
     hideLoading(state) {
       state.isLoading = false;
+    },
+    showErrorAlert(state, msg) {
+      state.errorMessage = msg;
+      state.errorAlert = true;
+    },
+    hideErrorAlert(state) {
+      state.errorAlert = false;
+    },
+    showSuccessNotice(state, msg) {
+      state.successMessage = msg;
+      state.successNotice = true;
+    },
+    hideSuccessNotice(state) {
+      state.successNotice = false;
     },
     login(state) {
       state.isLogined = true;

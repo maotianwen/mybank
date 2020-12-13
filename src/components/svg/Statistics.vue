@@ -1,54 +1,5 @@
 <template>
   <div class="statistic-btn" :class="isActive && 'active'">
-    <!-- <svg
-      viewBox="0 0 44 44"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-      <g
-        id="调整"
-        stroke="none"
-        stroke-width="1"
-        fill="none"
-        fill-rule="evenodd"
-      >
-        <g id="收支详情" transform="translate(-534.000000, -1595.000000)">
-          <g id="底部" transform="translate(0.000000, 1576.000000)">
-            <g id="矩形">
-              <use
-                fill="black"
-                fill-opacity="1"
-                filter="url(#filter-2)"
-                xlink:href="#path-1"
-              ></use>
-              <use
-                fill="#FFFFFF"
-                fill-rule="evenodd"
-                xlink:href="#path-1"
-              ></use>
-            </g>
-            <g
-              id="统计"
-              transform="translate(530.000000, 19.000000)"
-              fill-rule="nonzero"
-            >
-              <g transform="translate(4.000000, 0.000000)">
-                <path
-                  d="M4,40 L44,40 L44,44 L0,44 L0,0 L4,0 L4,40 Z M7.99999999,21 L12,21 L12,37 L7.99999999,37 L7.99999999,21 Z M17,15 L21,15 L21,37 L17,37 L17,15 Z M26,21 L30,21 L30,37 L26,37 L26,21 Z M35,13 L39,13 L39,37 L35,37 L35,13 Z"
-                  id="base"
-                ></path>
-                <polygon
-                  id="path"
-                  fill="#EF3535"
-                  points="11.11 13.664 8.88999998 10.336 19 3.59599999 27.825 9.48000002 35.671 2.50500001 38.329 5.49499998 28.175 14.52 19 8.404 11.11 13.664"
-                ></polygon>
-              </g>
-            </g>
-          </g>
-        </g>
-      </g>
-    </svg> -->
     <svg
       viewBox="0 0 44 44"
       version="1.1"

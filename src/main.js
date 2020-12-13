@@ -9,6 +9,8 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import './icons';
 import Loading from './components/Loading.vue';
+import ErrorAlert from './components/ErrorAlert.vue';
+import Success from './components/Success.vue';
 import Header from './components/Header.vue';
 import ContentTitle from './components/ContentTitle.vue';
 // import AmapVue from '@amap/amap-vue';
@@ -27,6 +29,8 @@ Vue.prototype.$showAlertToast = function() {
 Vue.component('Loading', Loading);
 Vue.component('Header', Header);
 Vue.component('ContentTitle', ContentTitle);
+Vue.component('ErrorAlert', ErrorAlert);
+Vue.component('Success', Success);
 
 new Vue({
   router,

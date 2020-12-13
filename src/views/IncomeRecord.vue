@@ -2,7 +2,7 @@
   <div class="income">
     <Header title="收支详情" :needBack="true" />
     <BillList v-show="activeIndex === 0" />
-    <IncomeCharts v-show="activeIndex === 1" />
+    <IncomeCharts v-if="activeIndex === 1" />
     <div class="footer" v-if="init">
       <Bill :isActive="activeIndex === 0" @click.native="activeIndex = 0" />
       <Statistics

@@ -148,10 +148,10 @@ export default {
     fill: transparent;
   }
   50% {
-    stroke-dashoffset: 3914;
+    stroke-dashoffset: 3966;
   }
   100% {
-    stroke-dashoffset: 3914;
+    stroke-dashoffset: 3966;
     fill: @my-red;
   }
 }

@@ -1,7 +1,13 @@
 <template>
   <div class="finance add-padding-bottom">
     <Header title="理财" :needMessage="true" :needBack="false" />
-    <Earning infoType="finance" />
+    <!-- <Earning infoType="finance" /> -->
+    <div class="ad regular-margin">
+      <p class="ad-title">新品“建鑫宝”受邀尊享</p>
+      <p class="ad-subtitle">7日年化3.09%</p>
+      <button>点击查看</button>
+      <img src="../assets/ad6.png" alt="" />
+    </div>
     <div class="main-part regular-margin">
       <div
         v-for="item in menuArr"
@@ -48,13 +54,11 @@
 
 <script>
 import ArticleItem from '@/components/ArticleItem';
-import Earning from '@/components/Earning';
 
 export default {
   name: 'Finance',
   components: {
-    ArticleItem,
-    Earning
+    ArticleItem
   },
   data() {
     return {
@@ -120,6 +124,43 @@ export default {
 <style lang="less" scoped>
 .finance {
   padding-top: 120px;
+  .ad {
+    background: linear-gradient(90deg, #eaeaf5 0%, #ebe6d3 100%);
+    height: 228px;
+    margin-bottom: 40px;
+    box-shadow: @shadow;
+    border-radius: 16px;
+    text-align: left;
+    color: #774131;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    padding: 40px 0 0 28px;
+    position: relative;
+    .ad-title {
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+    .ad-subtitle {
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+    }
+    button {
+      display: block;
+      padding: 6px 22px;
+      background: #2764e3;
+      border-radius: 15px;
+      color: #ffffff;
+    }
+    img {
+      position: absolute;
+      height: 228px;
+      right: 36px;
+      top: 0;
+    }
+  }
   .fund-recommend {
     margin-bottom: 38px;
     display: flex;

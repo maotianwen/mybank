@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <div class="income">
     <Header title="收支详情" :needBack="true" />
-    <div class="footer">
-      <Bill />
-      <Statistics />
+    <BillList v-show="activeIndex === 0" />
+    <IncomeCharts v-show="activeIndex === 1" />
+    <div class="footer" v-if="init">
+      <Bill :isActive="activeIndex === 0" @click.native="activeIndex = 0" />
+      <Statistics
+        :isActive="activeIndex === 1"
+        @click.native="activeIndex = 1"
+      />
     </div>
   </div>
 </template>
@@ -11,17 +16,34 @@
 <script>
 import Bill from '@/components/svg/Bill';
 import Statistics from '@/components/svg/Statistics';
+import BillList from './BillList';
+import IncomeCharts from './IncomeCharts';
 
 export default {
   name: 'IncomeRecord',
   components: {
     Bill,
-    Statistics
+    Statistics,
+    BillList,
+    IncomeCharts
+  },
+  data() {
+    return {
+      activeIndex: 0,
+      init: false
+    };
+  },
+  mounted() {
+    this.$store.commit('hideLoading');
+    setTimeout(() => (this.init = true), 500);
   }
 };
 </script>
 
 <style lang="less" scoped>
+.income {
+  padding-top: 87px;
+}
 .footer {
   display: flex;
   height: 114px;
@@ -47,7 +69,7 @@ export default {
   }
   svg {
     display: block;
-    margin: 20px auto;
+    margin: 24px auto;
   }
 }
 </style>

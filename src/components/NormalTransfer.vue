@@ -115,6 +115,11 @@ export default {
       const userName = this.name;
       if (!userName || !moneyNum || !this.curBankName) {
         console.log('error');
+        this.$AP.alert({
+          title: '亲',
+          content: '您有新的快递消息',
+          buttonText: '我知道了'
+        });
         return false;
       }
       if (!this.checkAccount(accountName)) {

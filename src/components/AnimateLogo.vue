@@ -42,6 +42,7 @@ path {
   stroke-dasharray: 5110;
   stroke-dashoffset: 5110;
   stroke-width: 6;
-  animation: dash 2.6s linear forwards;
+  // animation: dash 2.6s linear forwards;
+  animation: dash 2.6s linear infinite;
 }
 </style>

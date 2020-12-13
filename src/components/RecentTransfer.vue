@@ -1,7 +1,10 @@
 <template>
   <div class="recent-transfer fade-in">
     <ContentTitle title="最近转账" :needArrow="false" />
-    <p v-if="!transferRecord.length">最近没有转账记录</p>
+    <div class="no-record" v-if="!transferRecord.length">
+      <!-- <svg-icon iconClass="empty" /> -->
+      <p>最近没有转账记录。</p>
+    </div>
     <div class="record-wrapper" v-if="transferRecord.length">
       <div
         class="record"
@@ -73,6 +76,15 @@ export default {
   margin-top: 46px;
   margin-left: 34px;
   margin-right: 34px;
+}
+.no-record {
+  font-size: 26px;
+  text-align: center;
+  // padding-left: 34px;
+  color: @my-grey;
+  svg {
+    transform: scale(3);
+  }
 }
 .record {
   font-size: 26px;

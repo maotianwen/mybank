@@ -53,6 +53,7 @@ export default {
       if (!this.isLogined) {
         this.$router.push('login');
       } else {
+        this.$store.commit('showLoading');
         this.$router.push('incomerecord');
       }
     }

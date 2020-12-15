@@ -133,7 +133,7 @@ export default {
     }
     .type,
     .time {
-      font-size: 18px;
+      font-size: 22px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #8e8e93;

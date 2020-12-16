@@ -1,16 +1,24 @@
 <template>
-  <div class="list-item">
-    <svg-icon :iconClass="dataObj.icon" />
-    <div class="right-part">
-      <div class="info">
-        <p class="title">{{ dataObj.title }}</p>
-        <p class="type">{{ dataObj.type }}</p>
-        <p class="time">{{ dataObj.time }}</p>
+  <div class="swiper-wrapper">
+    <div
+      class="list-item"
+      :style="styleObj"
+      @touchstart="touchStart"
+      @touchmove="touchMove"
+      @touchend="touchEnd"
+    >
+      <svg-icon :iconClass="dataObj.icon" />
+      <div class="right-part">
+        <div class="info">
+          <p class="title">{{ dataObj.title }}</p>
+          <p class="type">{{ dataObj.type }}</p>
+          <p class="time">{{ dataObj.time }}</p>
+        </div>
+        <span>-{{ dataObj.cost.toFixed(2) }}</span>
       </div>
-      <span>-{{ dataObj.cost.toFixed(2) }}</span>
-    </div>
-    <div class="delete" @click="deleteMyself">
-      <svg-icon :iconClass="'trash-bin'" />
+      <div class="delete" @click="deleteMyself" ref="trashBin">
+        <svg-icon :iconClass="'trash-bin'" />
+      </div>
     </div>
   </div>
 </template>
@@ -24,74 +32,48 @@ export default {
       moveDistance: 0,
       moveState: 0,
       duration: 0,
-      isLoading: false
+      deleteBtnWidth: 0 //删除按钮的宽度，单位px
     };
+  },
+  mounted() {
+    this.deleteBtnWidth = this.$refs.trashBin.offsetWidth;
   },
   computed: {
     styleObj() {
       return {
-        transition: `${this.duration}ms`,
         transform: `translateX(${this.moveDistance}px)`
       };
     }
   },
   methods: {
-    //三个事件在开始时都要判断isLoading的值，为true就退出，以免重复触发
     touchStart(e) {
-      if (this.isLoading) {
-        return false;
-      }
-      this.duration = 0;
-      this.moveDistance = 0;
-      this.startX = e.targetTouches[0].clientX; //起点x坐标
+      this.startX = e.targetTouches[0].clientX;
     },
     touchMove(e) {
-      if (this.isLoading) {
-        return false;
-      }
       let move = e.targetTouches[0].clientX - this.startX;
-      if (move > 0) {
-        e.preventDefault();
-        this.moveDistance = Math.pow(move, 0.8);
-        if (this.moveDistance > 50) {
-          if (this.moveState === 1) {
-            return false;
-          }
-          this.moveState = 1;
-        } else {
-          if (this.moveState === 0) {
-            return false;
-          }
-          this.moveState = 0;
-        }
+      let maxDistance = -1 * this.deleteBtnWidth;
+      if (this.moveDistance === 0 && move > 0) {
+        return;
       }
+      if (this.moveDistance < maxDistance) {
+        return;
+      }
+      if (this.moveDistance > 0) {
+        return;
+      }
+      this.moveDistance = move * 0.8;
     },
     touchEnd() {
-      if (this.isLoading) {
-        return false;
-      }
-      this.duration = 300;
-      if (this.moveDistance > 50) {
+      let maxDistance = -1 * this.deleteBtnWidth;
+      if (this.moveDistance < maxDistance / 2) {
         this.moveState = 2;
-        this.moveDistance = 50;
-        this.isLoading = true;
-        setTimeout(() => {
-          this.moveDistance = 0;
-          this.isLoading = false;
-        }, 2000);
+        this.moveDistance = maxDistance;
       } else {
         this.moveDistance = 0;
       }
     },
     deleteMyself() {
       this.$emit('delete');
-    }
-  },
-  watch: {
-    moveState(state) {
-      if (state === 0 && this.duration === 300) {
-        this.moveDistance = 0;
-      }
     }
   },
   props: {
@@ -104,12 +86,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.swiper-wrapper {
+  overflow: hidden;
+}
 .list-item {
   display: flex;
   align-items: center;
+  width: 100%;
   height: 146px;
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
   svg {
     transform: scale(1.6);
     margin-left: 35px;

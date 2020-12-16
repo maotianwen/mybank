@@ -7,7 +7,7 @@
       </div>
       <div class="filter">筛选</div>
     </div>
-    <transition-group>
+    <transition-group name="smooth">
       <Bill
         :dataObj="item"
         v-for="(item, index) in list"
@@ -109,7 +109,7 @@ export default {
   text-align: left;
   .date,
   .filter {
-    font-size: 26px;
+    font-size: 28px;
     font-family: PingFangSC-Semibold, PingFang SC;
     font-weight: 600;
     color: #000000;
@@ -121,10 +121,26 @@ export default {
     margin-bottom: 10px;
   }
   .data {
-    font-size: 20px;
+    font-size: 26px;
     font-family: PingFangSC-Semibold, PingFang SC;
     font-weight: 600;
     color: #455a64;
   }
+}
+
+.smooth-enter-active,
+.smooth-leave-active {
+  transition: all 0.6s ease;
+}
+.smooth-enter-from,
+.smooth-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+.smooth-leave-active {
+  position: absolute;
+}
+.smooth-move {
+  transition: transform 0.6s ease;
 }
 </style>

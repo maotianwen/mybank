@@ -7,22 +7,26 @@
         :class="curIndex === 0 && 'active'"
         @click="curIndex = 0"
       >
-        <p>支出</p>
-        <p>
-          ¥
-          <span class="nums">1628.19</span>
-        </p>
+        <div class="data">
+          <p>支出</p>
+          <p>
+            ¥
+            <span class="nums">1628.19</span>
+          </p>
+        </div>
       </div>
       <div
         class="income"
         :class="curIndex === 1 && 'active'"
         @click="curIndex = 1"
       >
-        <p>收入</p>
-        <p>
-          ¥
-          <span class="nums">5042.92</span>
-        </p>
+        <div>
+          <p>收入</p>
+          <p>
+            ¥
+            <span class="nums">5042.92</span>
+          </p>
+        </div>
       </div>
       <div class="slide" :class="curIndex ? 'at-income' : 'at-pay'"></div>
     </div>
@@ -71,7 +75,7 @@ export default {
       background-color: #e1e1e1;
       padding: 4px 22px 4px 16px;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 26px;
       top: 0;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -91,6 +95,9 @@ export default {
       &.active {
         color: #000;
       }
+      span {
+        font-size: 38px;
+      }
     }
     .slide {
       width: 260px;
@@ -101,7 +108,7 @@ export default {
       bottom: -3px;
       transition: all 0.5s;
       &.at-pay {
-        transform: translateX(46px);
+        transform: translateX(66px);
       }
       &.at-income {
         transform: translateX(446px);

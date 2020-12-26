@@ -19,25 +19,47 @@ export default {
       barOptions: {
         xAxis: {
           type: 'category',
-          data: [
-            '家具家电',
-            '粮油副食',
-            '美容洗护',
-            '母婴用品',
-            '进口食品',
-            '食品饮料',
-            '家庭清洁'
-          ]
+          data: ['家具家电', '粮油副食', '美容洗护', '母婴用品', '教育培训'],
+          axisLabel: {
+            fontSize: 9
+          },
+          axisTick: {
+            show: false
+          }
         },
         yAxis: {
-          type: 'value'
+          show: false
         },
         series: [
           {
-            data: [310, 290, 840, 580, 620, 110, 130],
+            data: [310, 290, 840, 580, 620],
             type: 'bar',
-            itemStyle: {
+            label: {
+              show: true,
+              position: 'top',
+              formatter: '¥{c}',
+              fontFamily: 'DINAlternate-Bold, DINAlternate',
+              fontSize: 14,
               color: '#0066b3'
+            },
+            itemStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 2.4,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: '#0066b3' // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: '#ffffff' // 100% 处的颜色
+                  }
+                ]
+              }
             }
           }
         ]
@@ -51,6 +73,6 @@ export default {
 .chart-wrapper {
   box-shadow: @shadow;
   border-radius: 24px;
-  padding: 0 28px;
+  // padding-left: 42px;
 }
 </style>

@@ -103,6 +103,7 @@
 import LineChart from '@/components/LineChart';
 import CountNum from '../components/CountNum.vue';
 import BuySteps from '@/components/BuySteps.vue';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'Gold',
@@ -172,12 +173,19 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['showErrorAlert']),
     async getFundDetail(code) {
       this.$store.commit('showLoading');
-      const res = await this.$api.getFundDetail(code);
-      this.goldData = Object.assign({}, this.goldData, res.data.data);
-      this.lineData = this.goldData.netWorthData.slice(-24);
-      this.$store.commit('hideLoading');
+      try {
+        const res = await this.$api.getFundDetail(code);
+        this.goldData = Object.assign({}, this.goldData, res.data.data);
+        this.lineData = this.goldData.netWorthData.slice(-24);
+        this.$store.commit('hideLoading');
+      } catch (error) {
+        console.error(error);
+        this.$store.commit('hideLoading');
+        this.showErrorAlert('未能成功获取基金数据');
+      }
     },
     changeTimeIndex(itemIndex, index) {
       this.timeIndex = itemIndex;

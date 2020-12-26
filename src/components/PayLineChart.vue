@@ -21,28 +21,36 @@ export default {
           {
             type: 'line',
             data: [
-              820,
-              932,
-              901,
-              934,
-              1290,
-              1330,
-              1320,
-              820,
-              932,
-              901,
-              934,
-              1290,
-              1330,
-              1320,
-              820,
-              932,
-              901,
-              934,
-              1290,
-              1330,
-              1320,
-              1
+              34,
+              32,
+              57,
+              93,
+              59,
+              68,
+              80,
+              40,
+              92,
+              46,
+              94,
+              96,
+              40,
+              80,
+              82,
+              72,
+              91,
+              24,
+              90,
+              30,
+              32,
+              66,
+              72,
+              88,
+              84,
+              28,
+              98,
+              48,
+              56,
+              60
             ],
             lineStyle: {
               color: '#0066b3'
@@ -76,10 +84,10 @@ export default {
           {
             data: [],
             axisTick: {
-              show: false
+              show: true
             },
             axisLabel: {
-              show: false
+              show: true
             },
             axisPointer: {
               type: 'line',
@@ -95,8 +103,8 @@ export default {
         yAxis: [
           {
             show: false,
-            min: value => value.min,
-            max: value => value.max + 300,
+            min: value => value.min - 18,
+            max: value => value.max + 18,
             splitLine: { show: false },
             axisLabel: {
               interval: 0,
@@ -106,9 +114,35 @@ export default {
               }
             }
           }
-        ]
+        ],
+        tooltip: {
+          trigger: 'axis',
+          position: (point, params, dom, rect, size) => {
+            return [point[0] - size.contentSize[0] / 2, '5%'];
+          },
+          padding: [4, 8],
+          backgroundColor: '#0066b3',
+          formatter: params => {
+            let data = params[0].value;
+            let time = params[0].axisValue.split('-');
+            const month = time[0],
+              day = time[1];
+            return `<div style="text-align:center"><p>${month}月${day}日</p><p class="nums">¥${data}.00</p></div>`;
+          }
+        }
       }
     };
+  },
+  mounted() {
+    this.generateMonth();
+  },
+  methods: {
+    generateMonth() {
+      for (let i = 1; i <= 30; i++) {
+        const day = `11-${i}`;
+        this.lineOptions.xAxis[0].data.push(day);
+      }
+    }
   }
 };
 </script>

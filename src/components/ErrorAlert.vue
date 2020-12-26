@@ -34,10 +34,10 @@ export default {
     autoHide() {
       setTimeout(() => {
         this.fade = true;
-      }, 800);
+      }, 1500);
       setTimeout(() => {
         this.hideErrorAlert();
-      }, 1200);
+      }, 1800);
     }
   },
   destroyed() {
